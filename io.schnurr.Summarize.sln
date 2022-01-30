@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "io.schnurr.Summarize.Meta", "Summarize.Meta\io.schnurr.Summarize.Meta.csproj", "{DC06AA72-62F4-4C43-9347-87FB073AE2A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "io.schnurr.Summarize.Meta", "io.schnurr.Summarize.Meta\io.schnurr.Summarize.Meta.csproj", "{DC06AA72-62F4-4C43-9347-87FB073AE2A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "io.schnurr.Summarize.Web", "Summarize.Web\io.schnurr.Summarize.Web.csproj", "{865113B2-8554-4DCA-B038-21FB2F5A53E7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "io.schnurr.Summarize.Web", "io.schnurr.Summarize.Web\io.schnurr.Summarize.Web.csproj", "{865113B2-8554-4DCA-B038-21FB2F5A53E7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
