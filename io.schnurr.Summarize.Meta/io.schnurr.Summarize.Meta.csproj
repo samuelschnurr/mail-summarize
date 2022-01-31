@@ -65,7 +65,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Summarize.Web\io.schnurr.Summarize.Web.csproj">
+    <ProjectReference Include="..\io.schnurr.Summarize.Web\io.schnurr.Summarize.Web.csproj">
       <Project>{865113B2-8554-4DCA-B038-21FB2F5A53E7}</Project>
       <Name>Summarize.Web</Name>
       <Private>True</Private>
