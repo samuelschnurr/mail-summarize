@@ -1,5 +1,15 @@
-﻿/*Page-specific styling */
+﻿html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
 
-.padding {
-    padding: 15px;
+td.prop-val {
+    word-break: break-all;
+}
+
+.content-main {
+    margin: 10px;
 }
