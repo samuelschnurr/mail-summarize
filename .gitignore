@@ -351,7 +351,9 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-/io.schnurr.Summarize.Api/Properties/ServiceDependencies/fa-cognitive-d - Zip Deploy/profile.arm.json
-/io.schnurr.Summarize.Api/Properties/serviceDependencies.json
-/io.schnurr.Summarize.Api/Properties/serviceDependencies.local.json
-/io.schnurr.Summarize.Api/host.json
+
+# Custom Ignore
+*.local.json
+profile.arm.json
+serviceDependencies.json
+host.json
