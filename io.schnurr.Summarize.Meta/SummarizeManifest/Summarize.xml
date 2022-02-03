@@ -13,11 +13,7 @@
   <DisplayName DefaultValue="Mail Summarize" />
   <Description DefaultValue="Summarize mails with artificial intelligence"/>
   <IconUrl DefaultValue="~remoteAppUrl/Images/icon64.png"/>
-
   <SupportUrl DefaultValue="https://www.schnurr.io" />
-  <AppDomains>
-    <AppDomain>https://fa-cognitive-d.azurewebsites.net</AppDomain>
-  </AppDomains>
 
   <Hosts>
     <Host Name="Mailbox" />
@@ -90,13 +86,13 @@
         <bt:Url id="messageReadTaskPaneUrl" DefaultValue="~remoteAppUrl/MessageRead.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="groupLabel" DefaultValue="Mail Summarize Add-in Group"/>
-        <bt:String id="customTabLabel"  DefaultValue="Mail Summarize Add-in Tab"/>
-        <bt:String id="paneReadButtonLabel" DefaultValue="Display all properties"/>
-        <bt:String id="paneReadSuperTipTitle" DefaultValue="Get all properties"/>
+        <bt:String id="groupLabel" DefaultValue="Add-in"/>
+        <bt:String id="customTabLabel"  DefaultValue="Add-in"/>
+        <bt:String id="paneReadButtonLabel" DefaultValue="Mail summarize"/>
+        <bt:String id="paneReadSuperTipTitle" DefaultValue="Mail summarize"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens a pane displaying all available properties."/>
+        <bt:String id="paneReadSuperTipDescription" DefaultValue="Opens the mail summarize pane."/>
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>
