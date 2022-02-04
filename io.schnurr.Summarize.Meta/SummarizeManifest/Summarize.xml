@@ -81,7 +81,7 @@
         <bt:Image id="icon80" DefaultValue="~remoteAppUrl/images/icon80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="~remoteAppUrl/compontens/messageRead/summarize.html"/>
+        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="~remoteAppUrl/components/messageRead/summarize.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="Add-in"/>
