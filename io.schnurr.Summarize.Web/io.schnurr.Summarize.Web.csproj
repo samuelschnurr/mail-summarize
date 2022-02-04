@@ -97,6 +97,10 @@
     <Content Include="components\messageRead\summarize.css" />
     <Content Include="components\messageRead\summarize.html" />
     <Content Include="components\messageRead\summarize.js" />
+    <Content Include="lib\jquery\jquery.js" />
+    <Content Include="lib\jquery\jquery.min.js" />
+    <Content Include="lib\jquery\jquery.slim.js" />
+    <Content Include="lib\jquery\jquery.slim.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -104,6 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />
+    <Content Include="lib\jquery\jquery.min.map" />
+    <Content Include="lib\jquery\jquery.slim.min.map" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
