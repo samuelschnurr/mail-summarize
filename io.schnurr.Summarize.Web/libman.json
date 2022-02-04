@@ -1,0 +1,22 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jquery@3.6.0",
+      "destination": "lib/jquery/",
+      "files": [
+        "jquery.slim.js",
+        "jquery.js"
+      ]
+    },
+    {
+      "library": "jquery@3.6.0",
+      "destination": "lib/jquery/"
+    },
+    {
+      "library": "jquery@3.6.0",
+      "destination": "lib/jquery/"
+    }
+  ]
+}
