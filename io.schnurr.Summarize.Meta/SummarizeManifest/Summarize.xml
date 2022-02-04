@@ -12,7 +12,7 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Mail Summarize" />
   <Description DefaultValue="Summarize mails with artificial intelligence"/>
-  <IconUrl DefaultValue="~remoteAppUrl/Images/icon64.png"/>
+  <IconUrl DefaultValue="~remoteAppUrl/images/icon64.png"/>
   <SupportUrl DefaultValue="https://www.schnurr.io" />
 
   <Hosts>
@@ -26,7 +26,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="~remoteAppUrl/MessageRead.html"/>
+        <SourceLocation DefaultValue="~remoteAppUrl/components/messageRead/summarize.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -48,7 +48,6 @@
       <Host xsi:type="MailHost">
 
         <DesktopFormFactor>
-          <FunctionFile resid="functionFile" />
           <ExtensionPoint xsi:type="MessageReadCommandSurface">
             <OfficeTab id="TabDefault">
               <Group id="msgReadGroup">
@@ -77,13 +76,12 @@
 
     <Resources>
       <bt:Images>
-        <bt:Image id="icon16" DefaultValue="~remoteAppUrl/Images/icon16.png"/>
-        <bt:Image id="icon32" DefaultValue="~remoteAppUrl/Images/icon32.png"/>
-        <bt:Image id="icon80" DefaultValue="~remoteAppUrl/Images/icon80.png"/>
+        <bt:Image id="icon16" DefaultValue="~remoteAppUrl/images/icon16.png"/>
+        <bt:Image id="icon32" DefaultValue="~remoteAppUrl/images/icon32.png"/>
+        <bt:Image id="icon80" DefaultValue="~remoteAppUrl/images/icon80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="functionFile" DefaultValue="~remoteAppUrl/Functions/FunctionFile.html"/>
-        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="~remoteAppUrl/MessageRead.html"/>
+        <bt:Url id="messageReadTaskPaneUrl" DefaultValue="~remoteAppUrl/compontens/messageRead/summarize.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="groupLabel" DefaultValue="Add-in"/>
