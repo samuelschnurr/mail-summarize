@@ -94,10 +94,6 @@
     <Content Include="images\icon32.png" />
     <Content Include="images\icon64.png" />
     <Content Include="images\icon80.png" />
-    <Content Include="lib\jquery\jquery.js" />
-    <Content Include="lib\jquery\jquery.min.js" />
-    <Content Include="lib\jquery\jquery.slim.js" />
-    <Content Include="lib\jquery\jquery.slim.min.js" />
     <Content Include="components\messageRead\summarize.css" />
     <Content Include="components\messageRead\summarize.html" />
     <Content Include="components\messageRead\summarize.js" />
@@ -108,8 +104,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="libman.json" />
-    <Content Include="lib\jquery\jquery.min.map" />
-    <Content Include="lib\jquery\jquery.slim.min.map" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
