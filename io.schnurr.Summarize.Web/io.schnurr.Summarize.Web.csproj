@@ -93,6 +93,7 @@
     <Content Include="components\messageRead\summarize.html" />
     <Content Include="components\messageRead\summarize.js" />
     <Content Include="images\close.png" />
+    <Content Include="images\icon.png" />
     <Content Include="images\icon16.png" />
     <Content Include="images\icon32.png" />
     <Content Include="images\icon64.png" />
