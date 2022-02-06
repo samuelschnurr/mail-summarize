@@ -355,6 +355,3 @@ MigrationBackup/
 # Custom Ignore
 **/lib
 *.local.json
-profile.arm.json
-serviceDependencies.json
-host.json
