@@ -355,3 +355,5 @@ MigrationBackup/
 # Custom Ignore
 **/lib
 *.local.json
+*min.css
+*min.js
