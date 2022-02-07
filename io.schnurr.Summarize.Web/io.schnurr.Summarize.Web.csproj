@@ -101,6 +101,8 @@
     <Content Include="lib\jquery\jquery.min.js" />
     <Content Include="lib\jquery\jquery.slim.js" />
     <Content Include="lib\jquery\jquery.slim.min.js" />
+    <Content Include="lib\office-ui-fabric-core\dist\css\fabric.css" />
+    <Content Include="lib\office-ui-fabric-core\dist\css\fabric.min.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

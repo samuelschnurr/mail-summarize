@@ -4,19 +4,16 @@
   "libraries": [
     {
       "library": "jquery@3.6.0",
-      "destination": "lib/jquery/",
+      "destination": "lib/jquery/"
+    },
+    {
+      "provider": "jsdelivr",
+      "library": "office-ui-fabric-core@11.0.0",
+      "destination": "lib/office-ui-fabric-core/",
       "files": [
-        "jquery.slim.js",
-        "jquery.js"
+        "dist/css/fabric.css",
+        "dist/css/fabric.min.css"
       ]
-    },
-    {
-      "library": "jquery@3.6.0",
-      "destination": "lib/jquery/"
-    },
-    {
-      "library": "jquery@3.6.0",
-      "destination": "lib/jquery/"
     }
   ]
 }
