@@ -352,8 +352,12 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# Custom Ignore
+# Custom Ignore: Libraries, settings and minified files
 **/lib
 *.local.json
 *min.css
 *min.js
+
+# Custom Ignore: MS Office pulls many scripts and contents - they will be restored on build
+**/Scripts 
+**/Content
