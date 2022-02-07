@@ -1,0 +1,16 @@
+[
+  {
+    "outputFileName": "components/messageRead/summarize.min.css",
+    "inputFiles": [ "components/messageRead/summarize.css" ],
+    "minify": {
+      "enabled": true
+    }
+  },
+  {
+    "outputFileName": "components/messageRead/summarize.min.js",
+    "inputFiles": [ "components/messageRead/summarize.js" ],
+    "minify": {
+      "enabled": true
+    }
+  }
+]
