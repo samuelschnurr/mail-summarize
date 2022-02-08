@@ -55,7 +55,7 @@ export default class App extends React.Component<AppProps, AppState> {
       return (
         <Progress
           title={title}
-          logo={require("./../../../assets/logo-filled.png")}
+          logo={require("./../../../assets/icon.png")}
           message="Please sideload your addin to see app body."
         />
       );
@@ -63,7 +63,7 @@ export default class App extends React.Component<AppProps, AppState> {
 
     return (
       <div className="ms-welcome">
-        <Header logo={require("./../../../assets/logo-filled.png")} title={this.props.title} message="Welcome" />
+        <Header logo={require("./../../../assets/icon.png")} title={this.props.title} message="Welcome" />
         <HeroList message="Discover what Office Add-ins can do for you today!" items={this.state.listItems}>
           <p className="ms-font-l">
             Modify the source files, then click <b>Run</b>.
