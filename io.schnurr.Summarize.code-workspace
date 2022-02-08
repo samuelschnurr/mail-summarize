@@ -1,0 +1,19 @@
+{
+  "folders": [
+    {
+      "name": ".git",
+      "path": ".git"
+    },
+    {
+      "name": "io.schnurr.Summarize.Api",
+      "path": "io.schnurr.Summarize.Api"
+    },
+    {
+      "name": "io.schnurr.Summarize.Web",
+      "path": "io.schnurr.Summarize.Web"
+    }
+  ],
+  "settings": {
+    "debug.internalConsoleOptions": "neverOpen"
+  }
+}
