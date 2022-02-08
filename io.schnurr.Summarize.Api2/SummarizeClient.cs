@@ -1,4 +1,4 @@
-using Azure;
+﻿using Azure;
 using Azure.AI.TextAnalytics;
 using System;
 using System.Collections.Generic;
