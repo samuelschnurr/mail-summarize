@@ -351,9 +351,3 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-
-# Custom Ignore
-**/lib
-*.local.json
-*min.css
-*min.js

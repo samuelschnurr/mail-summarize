@@ -1,0 +1,42 @@
+{
+  "version": "0.3.0",
+  "configurations": [
+    {
+      "name": "Outlook Desktop (Edge Chromium)",
+      "type": "pwa-msedge",
+      "request": "attach",
+      "useWebView": true,
+      "port": 9229,
+      "timeout": 600000,
+      "webRoot": "${workspaceRoot}",
+      "preLaunchTask": "Debug: Outlook Desktop",
+      "postDebugTask": "Stop Debug"
+    },
+    {
+      "name": "Outlook Desktop (Edge Legacy)",
+      "type": "office-addin",
+      "request": "attach",
+      "url": "https://localhost:3000/taskpane.html?_host_Info=Outlook$Win32$16.01$en-US$$$$0",
+      "port": 9222,
+      "timeout": 600000,
+      "webRoot": "${workspaceRoot}",
+      "preLaunchTask": "Debug: Outlook Desktop",
+      "postDebugTask": "Stop Debug"
+    },
+    {
+      "name": "Office Online (Chrome)",
+      "type": "chrome",
+      "request": "launch",
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Debug: Web"
+    },
+    {
+      "name": "Office Online (Edge Chromium)",
+      "type": "pwa-msedge",
+      "request": "launch",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}",
+      "preLaunchTask": "Debug: Web"
+    }
+  ]
+}

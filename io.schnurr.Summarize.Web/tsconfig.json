@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "jsx": "react",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "strict": true,
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    "outDir": "dist",
+    "allowUnusedLabels": false,
+    "noImplicitReturns": true,
+    "noUnusedParameters": true,
+    "lib": [
+      "es7",
+      "dom"
+    ],
+    "pretty": true,
+    "typeRoots": [
+      "node_modules/@types"
+    ]
+  },
+  "include": [
+    "src"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false,
+  "ts-node": { 
+    "files": true 
+  }
+}
