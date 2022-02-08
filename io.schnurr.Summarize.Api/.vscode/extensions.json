@@ -1,7 +1,7 @@
 {
-	"recommendations": [
-	  "ms-dotnettools.csharp"
-	],
-	"unwantedRecommendations": []
-  }
-  
+  "recommendations": [
+    "ms-azuretools.vscode-azurefunctions",
+    "ms-dotnettools.csharp",
+  ],
+  "unwantedRecommendations": []
+}
