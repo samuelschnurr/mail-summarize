@@ -47,7 +47,7 @@
     "copy-webpack-plugin": "^9.0.1",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-config-recommended": "^4.1.0",
+    "eslint-config-recommended": "^2.0.0",
     "eslint-plugin-office-addins": "^2.0.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.16.0",
