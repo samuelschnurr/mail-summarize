@@ -1,8 +1,29 @@
 {
   "plugins": [
-    "office-addins"
+    "office-addins",
+    "simple-import-sort"
   ],
   "extends": [
-    "plugin:office-addins/react"
-  ]
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:office-addins/react",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "simple-import-sort/imports": "warn",
+    "simple-import-sort/exports": "warn",
+    "@typescript-eslint/no-unused-vars": [
+      "warn"
+    ],
+    "no-unused-vars": "warn",
+    "max-lines-per-function": [
+      "warn",
+      200
+    ],
+    "max-lines": [
+      "warn",
+      300
+    ]
+  }
 }
