@@ -14,6 +14,13 @@
     }
   ],
   "settings": {
-    "debug.internalConsoleOptions": "neverOpen"
-  }
+    "debug.internalConsoleOptions": "neverOpen",
+    "editor.tabSize": 4,
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    // If opened as workspace, Pre language configuration and
+    // folder configuration do not work on omnisharp
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+  },
 }

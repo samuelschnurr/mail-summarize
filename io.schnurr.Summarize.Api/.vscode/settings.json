@@ -2,5 +2,6 @@
   "azureFunctions.deploySubpath": "bin/Release/net5.0/publish",
   "azureFunctions.projectLanguage": "C#",
   "azureFunctions.projectRuntime": "~3",
-  "azureFunctions.preDeployTask": "publish (functions)"
+  "azureFunctions.preDeployTask": "publish (functions)",
+  "editor.formatOnSave": true
 }

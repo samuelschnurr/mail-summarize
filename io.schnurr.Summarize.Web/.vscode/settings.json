@@ -5,8 +5,6 @@
     "typescript"
   ],
   "eslint.run": "onType",
-  "editor.tabSize": 4,
-  "editor.detectIndentation": true,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
