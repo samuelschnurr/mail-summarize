@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using Azure;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
@@ -14,14 +15,14 @@ namespace io.schnurr.Summarize.Api
 		private static readonly string AzureKeyCredential = Environment.GetEnvironmentVariable(nameof(AzureKeyCredential), EnvironmentVariableTarget.Process);
 
 		[Function("SummarizeFunction")]
-		public static HttpResponseData Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req,
+		public async static Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req,
 			FunctionContext executionContext)
 		{
 			string requestBody = string.Empty;
 
 			using (var streamReader = new StreamReader(req.Body))
 			{
-				requestBody = streamReader.ReadToEnd();
+				requestBody = await streamReader.ReadToEndAsync();
 			}
 
 			if (string.IsNullOrWhiteSpace(requestBody))
@@ -36,11 +37,11 @@ namespace io.schnurr.Summarize.Api
 			var endpoint = new Uri(AzureEndpoint);
 			var client = new SummarizeClient(endpoint, credentials);
 
-			string summarizedText = client.SummarizeTextAsync(batchInput).Result;
+			string summarizedText = await client.SummarizeTextAsync(batchInput);
 
 			var response = req.CreateResponse(HttpStatusCode.OK);
 			response.Headers.Add("Content-Type", "text/plain; charset=utf-8");
-			response.WriteString(summarizedText);
+			await response.WriteStringAsync(summarizedText);
 			return response;
 		}
 	}
