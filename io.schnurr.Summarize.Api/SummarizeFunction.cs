@@ -27,7 +27,7 @@ namespace io.schnurr.Summarize.Api
 
             if (string.IsNullOrWhiteSpace(requestBody))
             {
-                var errorResponse = req.CreateResponse(HttpStatusCode.BadRequest);
+                HttpResponseData errorResponse = req.CreateResponse(HttpStatusCode.BadRequest);
                 return errorResponse;
             }
 
@@ -35,11 +35,11 @@ namespace io.schnurr.Summarize.Api
             var endpoint = new Uri(AzureEndpoint);
             var client = new SummarizeClient(endpoint, credentials);
 
-            var actions = GetTextAnalyticsActions(true);
             var batchInput = new List<string>() { requestBody };
-            var plainResults = await client.GetPlainAnalyzeActionsResultsAsync(actions, batchInput);
+            TextAnalyticsActions actions = GetTextAnalyticsActions(true);
+            List<PlainAnalyzeActionsResult> plainResults = await client.GetPlainAnalyzeActionsResultsAsync(actions, batchInput);
 
-            var response = req.CreateResponse();
+            HttpResponseData response = req.CreateResponse();
             await response.WriteAsJsonAsync(plainResults);
             return response;
         }
