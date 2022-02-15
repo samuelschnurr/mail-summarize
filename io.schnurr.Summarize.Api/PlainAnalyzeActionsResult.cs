@@ -1,8 +1,8 @@
 namespace io.schnurr.Summarize.Api
 {
-    internal class PlainAnalyzeActionsResult
+    public class PlainAnalyzeActionsResult
     {
-        internal string Summary { get; set; }
-        internal string Sentiment { get; set; }
+        public string Summary { get; set; }
+        public string Sentiment { get; set; }
     }
 }
