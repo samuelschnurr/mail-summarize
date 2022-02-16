@@ -12,105 +12,106 @@ namespace io.schnurr.Summarize.Api
         internal SummarizeClient(Uri endpoint, AzureKeyCredential credentials) : base(endpoint, credentials)
         { }
 
-        internal async Task<string> SummarizeTextAsync(List<string> batchInput)
+        internal async Task<List<PlainAnalyzeActionsResult>> GetPlainAnalyzeActionsResultsAsync(TextAnalyticsActions actions, List<string> batchInput)
         {
-            TextAnalyticsActions actions = GetTextAnalyticsActions(true);
+            List<AnalyzeActionsResult> actionResults = await GetAnalyzeActionsResultsAsync(actions, batchInput);
+            List<PlainAnalyzeActionsResult> plainResults = new();
+
+            foreach (AnalyzeActionsResult result in actionResults)
+            {
+                var plainResult = new PlainAnalyzeActionsResult
+                {
+                    Summary = GetPlainResults(result.ExtractSummaryResults),
+                    Sentiment = GetPlainResults(result.AnalyzeSentimentResults)
+                };
+
+                plainResults.Add(plainResult);
+            }
+
+            return plainResults;
+        }
+
+        private async Task<List<AnalyzeActionsResult>> GetAnalyzeActionsResultsAsync(TextAnalyticsActions actions, List<string> batchInput)
+        {
             AnalyzeActionsOperation operation = await StartAnalyzeActionsAsync(batchInput, actions);
             await operation.WaitForCompletionAsync();
 
-            StringBuilder sb = new();
+            List<AnalyzeActionsResult> results = new();
 
-            await foreach (AnalyzeActionsResult documentsInPage in operation.Value)
+            await foreach (var actionResultInPage in operation.Value)
             {
-                var s1 = GetExtractSummaryActionResultS(documentsInPage);
-                sb.Append(s1);
-                var s2 = GetAnalyzeSentimentActionResults(documentsInPage);
-                sb.Append(s2);
+                results.Add(actionResultInPage);
             }
 
-            return sb.ToString();
+            return results;
         }
 
-
-        private static string GetExtractSummaryActionResultS(AnalyzeActionsResult documentsInPage)
+        private static string GetPlainResults(IReadOnlyCollection<TextAnalyticsActionResult> actionResults)
         {
             StringBuilder sb = new();
 
-            IReadOnlyCollection<ExtractSummaryActionResult> summaryResults = documentsInPage.ExtractSummaryResults;
-
-            foreach (ExtractSummaryActionResult summaryActionResults in summaryResults)
+            foreach (TextAnalyticsActionResult actionResult in actionResults)
             {
-                if (summaryActionResults.HasError)
+                if (actionResult.HasError)
                 {
-                    sb.AppendLine("Error!");
-                    sb.AppendLine($"Action error code: {summaryActionResults.Error.ErrorCode}.");
-                    sb.AppendLine($"Message: {summaryActionResults.Error.Message}");
+                    sb.AppendLine($"Error {actionResult.Error.ErrorCode}: {actionResult.Error.Message}.");
                     continue;
                 }
 
-                foreach (ExtractSummaryResult documentResults in summaryActionResults.DocumentsResults)
+                switch (actionResult)
                 {
-                    if (documentResults.HasError)
-                    {
-                        sb.AppendLine($"Error!");
-                        sb.AppendLine($"Document error code: {documentResults.Error.ErrorCode}.");
-                        sb.AppendLine($"Message: {documentResults.Error.Message}");
-                        continue;
-                    }
-
-                    foreach (SummarySentence sentence in documentResults.Sentences)
-                    {
-                        sb.AppendLine($"{sentence.Text}");
-                        sb.AppendLine();
-                    }
+                    case ExtractSummaryActionResult summary:
+                        sb.AppendLine(GetPlainSummary(summary));
+                        break;
+                    case AnalyzeSentimentActionResult sentiment:
+                        sb.AppendLine(GetPlainSentiment(sentiment));
+                        break;
+                    default:
+                        throw new NotImplementedException($"{actionResult.GetType()} is not implemented as action.");
                 }
             }
 
             return sb.ToString();
         }
 
-        private static string GetAnalyzeSentimentActionResults(AnalyzeActionsResult documentsInPage)
+        private static string GetPlainSummary(ExtractSummaryActionResult actionResult)
         {
             StringBuilder sb = new();
 
-            IReadOnlyCollection<AnalyzeSentimentActionResult> sentimentResults = documentsInPage.AnalyzeSentimentResults;
-
-            foreach (AnalyzeSentimentActionResult sentimentResult in sentimentResults)
+            foreach (var docResult in actionResult.DocumentsResults)
             {
-                if (sentimentResult.HasError)
+                if (docResult.HasError)
                 {
-                    sb.AppendLine("Error!");
-                    sb.AppendLine($"Action error code: {sentimentResult.Error.ErrorCode}.");
-                    sb.AppendLine($"Message: {sentimentResult.Error.Message}");
+                    sb.AppendLine($"Document error {docResult.Error.ErrorCode}: {docResult.Error.Message}.");
                     continue;
                 }
 
-                foreach (AnalyzeSentimentResult documentResults in sentimentResult.DocumentsResults)
+                foreach (SummarySentence sentence in docResult.Sentences)
                 {
-                    if (documentResults.HasError)
-                    {
-                        sb.AppendLine($"Error!");
-                        sb.AppendLine($"Document error code: {documentResults.Error.ErrorCode}.");
-                        sb.AppendLine($"Message: {documentResults.Error.Message}");
-                        continue;
-                    }
-
-                    DocumentSentiment sentiment = documentResults.DocumentSentiment;
-                    sb.AppendLine($"Sentiment: { sentiment.Sentiment}");
-                    sb.AppendLine();
+                    sb.AppendLine(sentence.Text);
                 }
             }
 
             return sb.ToString();
         }
 
-        private static TextAnalyticsActions GetTextAnalyticsActions(bool disableServiceLogs)
+        private static string GetPlainSentiment(AnalyzeSentimentActionResult actionResult)
         {
-            return new TextAnalyticsActions()
+            StringBuilder sb = new();
+
+            foreach (var docResult in actionResult.DocumentsResults)
             {
-                AnalyzeSentimentActions = new List<AnalyzeSentimentAction>() { new AnalyzeSentimentAction() { IncludeOpinionMining = true, DisableServiceLogs = disableServiceLogs } },
-                ExtractSummaryActions = new List<ExtractSummaryAction>() { new ExtractSummaryAction() { DisableServiceLogs = disableServiceLogs } }
-            };
+                if (docResult.HasError)
+                {
+                    sb.AppendLine($"Document error {docResult.Error.ErrorCode}: {docResult.Error.Message}.");
+                    continue;
+                }
+
+                var sentiment = docResult.DocumentSentiment;
+                sb.AppendLine(sentiment.Sentiment.ToString());
+            }
+
+            return sb.ToString();
         }
     }
 }
