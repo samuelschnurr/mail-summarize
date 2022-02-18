@@ -78,15 +78,15 @@ namespace io.schnurr.Summarize.Api
         {
             StringBuilder sb = new();
 
-            foreach (var docResult in actionResult.DocumentsResults)
+            foreach (ExtractSummaryResult summaryResult in actionResult.DocumentsResults)
             {
-                if (docResult.HasError)
+                if (summaryResult.HasError)
                 {
-                    sb.AppendLine($"Document error {docResult.Error.ErrorCode}: {docResult.Error.Message}.");
+                    sb.AppendLine($"Document error {summaryResult.Error.ErrorCode}: {summaryResult.Error.Message}.");
                     continue;
                 }
 
-                foreach (SummarySentence sentence in docResult.Sentences)
+                foreach (SummarySentence sentence in summaryResult.Sentences)
                 {
                     sb.AppendLine(sentence.Text);
                 }
@@ -99,15 +99,15 @@ namespace io.schnurr.Summarize.Api
         {
             StringBuilder sb = new();
 
-            foreach (var docResult in actionResult.DocumentsResults)
+            foreach (AnalyzeSentimentResult sentimentResult in actionResult.DocumentsResults)
             {
-                if (docResult.HasError)
+                if (sentimentResult.HasError)
                 {
-                    sb.AppendLine($"Document error {docResult.Error.ErrorCode}: {docResult.Error.Message}.");
+                    sb.AppendLine($"Document error {sentimentResult.Error.ErrorCode}: {sentimentResult.Error.Message}.");
                     continue;
                 }
 
-                var sentiment = docResult.DocumentSentiment;
+                DocumentSentiment sentiment = sentimentResult.DocumentSentiment;
                 sb.AppendLine(sentiment.Sentiment.ToString());
             }
 
