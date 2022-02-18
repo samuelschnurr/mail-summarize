@@ -35,6 +35,9 @@ namespace io.schnurr.Summarize.Api
             var endpoint = new Uri(AzureEndpoint);
             var client = new SummarizeClient(endpoint, credentials);
 
+            // BatchInput is a single element because it represents a single email.
+            // If multiple elements should be processed there must be some additional logic in
+            // reading the http body and in the splitting of DocumentsResults in SummarizeClient.
             var batchInput = new List<string>() { requestBody };
             TextAnalyticsActions actions = GetTextAnalyticsActions(true);
             List<PlainAnalyzeActionsResult> plainResults = await client.GetPlainAnalyzeActionsResultsAsync(actions, batchInput);
