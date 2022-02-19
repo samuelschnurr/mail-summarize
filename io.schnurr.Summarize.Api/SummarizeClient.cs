@@ -54,10 +54,13 @@ namespace io.schnurr.Summarize.Api
             {
                 if (actionResult.HasError)
                 {
-                    sb.AppendLine($"Error {actionResult.Error.ErrorCode}: {actionResult.Error.Message}.");
+                    sb.AppendLine($"{actionResult.Error.ErrorCode}: {actionResult.Error.Message}.");
                     continue;
                 }
 
+                // The property 'DocumentsResults' is defined on every type of 'ActionResult' - it is not derived.
+                // So we use switch to iterate over the different types.
+                // Alternatively we could use reflection to get the property.
                 switch (actionResult)
                 {
                     case ExtractSummaryActionResult summary:
@@ -82,7 +85,7 @@ namespace io.schnurr.Summarize.Api
             {
                 if (summaryResult.HasError)
                 {
-                    sb.AppendLine($"Document error {summaryResult.Error.ErrorCode}: {summaryResult.Error.Message}.");
+                    sb.AppendLine($"{summaryResult.Error.ErrorCode}: {summaryResult.Error.Message}.");
                     continue;
                 }
 
@@ -103,7 +106,7 @@ namespace io.schnurr.Summarize.Api
             {
                 if (sentimentResult.HasError)
                 {
-                    sb.AppendLine($"Document error {sentimentResult.Error.ErrorCode}: {sentimentResult.Error.Message}.");
+                    sb.AppendLine($"{sentimentResult.Error.ErrorCode}: {sentimentResult.Error.Message}.");
                     continue;
                 }
 
