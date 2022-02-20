@@ -54,7 +54,7 @@ namespace io.schnurr.Summarize.Api
             {
                 if (actionResult.HasError)
                 {
-                    sb.AppendLine($"{actionResult.Error.ErrorCode}: {actionResult.Error.Message}.");
+                    sb.Append($"{actionResult.Error.ErrorCode}: {actionResult.Error.Message}.");
                     continue;
                 }
 
@@ -64,10 +64,10 @@ namespace io.schnurr.Summarize.Api
                 switch (actionResult)
                 {
                     case ExtractSummaryActionResult summary:
-                        sb.AppendLine(GetPlainSummary(summary));
+                        sb.Append(GetPlainSummary(summary));
                         break;
                     case AnalyzeSentimentActionResult sentiment:
-                        sb.AppendLine(GetPlainSentiment(sentiment));
+                        sb.Append(GetPlainSentiment(sentiment));
                         break;
                     default:
                         throw new NotImplementedException($"{actionResult.GetType()} is not implemented as action.");
@@ -85,13 +85,13 @@ namespace io.schnurr.Summarize.Api
             {
                 if (summaryResult.HasError)
                 {
-                    sb.AppendLine($"{summaryResult.Error.ErrorCode}: {summaryResult.Error.Message}.");
+                    sb.Append($"{summaryResult.Error.ErrorCode}: {summaryResult.Error.Message}.");
                     continue;
                 }
 
                 foreach (SummarySentence sentence in summaryResult.Sentences)
                 {
-                    sb.AppendLine(sentence.Text);
+                    sb.Append(sentence.Text);
                 }
             }
 
@@ -106,12 +106,12 @@ namespace io.schnurr.Summarize.Api
             {
                 if (sentimentResult.HasError)
                 {
-                    sb.AppendLine($"{sentimentResult.Error.ErrorCode}: {sentimentResult.Error.Message}.");
+                    sb.Append($"{sentimentResult.Error.ErrorCode}: {sentimentResult.Error.Message}.");
                     continue;
                 }
 
                 DocumentSentiment sentiment = sentimentResult.DocumentSentiment;
-                sb.AppendLine(sentiment.Sentiment.ToString());
+                sb.Append(sentiment.Sentiment.ToString());
             }
 
             return sb.ToString();
