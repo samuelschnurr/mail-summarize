@@ -25,5 +25,9 @@
       "warn",
       300
     ]
+  },
+  "env": {
+    "browser": true,
+    "node": true
   }
 }
