@@ -6,17 +6,15 @@ export interface HeaderProps {
     message: string
 }
 
-export default class Header extends React.Component<HeaderProps> {
-    render() {
-        const { title, logo, message } = this.props
-
-        return (
-            <section className="ms-welcome__header ms-bgColor-neutralLighter ms-u-fadeIn500">
-                <img width="90" height="90" src={logo} alt={title} title={title} />
-                <h1 className="ms-fontSize-su ms-fontWeight-light ms-fontColor-neutralPrimary">
-                    {message}
-                </h1>
-            </section>
-        )
-    }
+const Header = (props: HeaderProps) => {
+    return (
+        <section className="ms-welcome__header ms-bgColor-neutralLighter ms-u-fadeIn500">
+            <img width="90" height="90" src={props.logo} alt={props.title} title={props.title} />
+            <h1 className="ms-fontSize-su ms-fontWeight-light ms-fontColor-neutralPrimary">
+                {props.message}
+            </h1>
+        </section>
+    )
 }
+
+export default Header

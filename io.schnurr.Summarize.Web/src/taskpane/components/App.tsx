@@ -1,5 +1,6 @@
 import { DefaultButton } from "@fluentui/react"
 import * as React from "react"
+import { useEffect, useState } from "react"
 
 import Header from "./Header"
 import HeroList, { HeroListItem } from "./HeroList"
@@ -7,81 +8,62 @@ import Progress from "./Progress"
 
 export interface AppProps {
     title: string
-
     isOfficeInitialized: boolean
 }
 
-export interface AppState {
-    listItems: HeroListItem[]
-}
+const App = (props: AppProps) => {
+    const [listItems, setListItems] = useState([] as HeroListItem[])
 
-export default class App extends React.Component<AppProps, AppState> {
-    constructor(props: any, context: any) {
-        super(props, context)
-        this.state = {
-            listItems: [],
-        }
-    }
+    useEffect(() => {
+        setListItems([
+            {
+                icon: "Ribbon",
+                primaryText: "Achieve more with Office integration",
+            },
+            {
+                icon: "Unlock",
+                primaryText: "Unlock features and functionality",
+            },
+            {
+                icon: "Design",
+                primaryText: "Create and visualize like a pro",
+            },
+        ]),
+            []
+    })
 
-    componentDidMount() {
-        this.setState({
-            listItems: [
-                {
-                    icon: "Ribbon",
-                    primaryText: "Achieve more with Office integration",
-                },
-                {
-                    icon: "Unlock",
-                    primaryText: "Unlock features and functionality",
-                },
-                {
-                    icon: "Design",
-                    primaryText: "Create and visualize like a pro",
-                },
-            ],
-        })
-    }
-
-    click = async () => {
-        /**
-         * Insert your Outlook code here
-         */
-    }
-
-    render() {
-        const { title, isOfficeInitialized } = this.props
-
-        if (!isOfficeInitialized) {
-            return (
-                <Progress
-                    title={title}
-                    logo={require("./../../../assets/icon.png")}
-                    message="Please sideload your addin to see app body."
-                />
-            )
-        }
-
+    if (!props.isOfficeInitialized) {
         return (
-            <div className="ms-welcome">
-                <Header
-                    logo={require("./../../../assets/icon.png")}
-                    title={this.props.title}
-                    message="Welcome"
-                />
-                <HeroList
-                    message="Discover what Office Add-ins can do for you today!"
-                    items={this.state.listItems}>
-                    <p className="ms-font-l">
-                        Modify the source files, then click <b>Run</b>.
-                    </p>
-                    <DefaultButton
-                        className="ms-welcome__action"
-                        iconProps={{ iconName: "ChevronRight" }}
-                        onClick={this.click}>
-                        Run
-                    </DefaultButton>
-                </HeroList>
-            </div>
+            <Progress
+                title={props.title}
+                logo={require("./../../../assets/icon.png")}
+                message="Please sideload your addin to see app body."
+            />
         )
     }
+
+    return (
+        <div className="ms-welcome">
+            <Header
+                logo={require("./../../../assets/icon.png")}
+                title={props.title}
+                message="Welcome"
+            />
+            <HeroList
+                message="Discover what Office Add-ins can do for you today!"
+                items={listItems}>
+                <p className="ms-font-l">
+                    Modify the source files, then click <b>Run</b>.
+                </p>
+                <DefaultButton
+                    className="ms-welcome__action"
+                    iconProps={{ iconName: "ChevronRight" }}
+                    onClick={() => alert("Clicked!")}>
+                    Run
+                </DefaultButton>
+            </HeroList>
+        </div>
+    )
 }
+
+export default App
