@@ -1,5 +1,5 @@
 {
-  "name": "office-addin-taskpane-react",
+  "name": "mail-summarize-office-addin",
   "version": "0.0.1",
   "repository": {
     "type": "git",
@@ -36,6 +36,7 @@
   "devDependencies": {
     "@babel/core": "^7.13.10",
     "@babel/preset-typescript": "^7.13.0",
+    "@types/copy-webpack-plugin": "^10.1.0",
     "@types/office-js": "^1.0.180",
     "@types/office-runtime": "^1.0.17",
     "@types/react": "^16.8.22",
@@ -45,7 +46,7 @@
     "@types/webpack-dev-server": "^4.1.0",
     "acorn": "^8.5.0",
     "babel-loader": "^8.2.2",
-    "copy-webpack-plugin": "^9.0.1",
+    "copy-webpack-plugin": "^9.1.0",
     "eslint": "^7.20.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-recommended": "^2.0.0",
