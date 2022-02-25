@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "es5",
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "CommonJS",
     "jsx": "react",
     "moduleResolution": "node",
     "sourceMap": true,

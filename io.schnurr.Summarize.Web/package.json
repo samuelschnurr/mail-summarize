@@ -1,6 +1,7 @@
 {
   "name": "mail-summarize-office-addin",
   "version": "0.0.1",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/samuelschnurr/outlook-summarize.git"
