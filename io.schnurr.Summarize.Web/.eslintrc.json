@@ -29,5 +29,6 @@
   "env": {
     "browser": true,
     "node": true
-  }
+  },
+  "ignorePatterns": ["webpack.config.js"]
 }
