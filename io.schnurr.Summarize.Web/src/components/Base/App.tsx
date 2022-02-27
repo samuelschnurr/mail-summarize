@@ -1,9 +1,9 @@
 import { DefaultButton } from "@fluentui/react"
 import * as React from "react"
-import { useEffect, useState } from "react"
 
 import HeroList, { HeroListItem } from "../HeroList/HeroList"
 import Progress from "../Shared/Progress"
+import icon from "./../../../assets/icon.png"
 import Header from "./Header"
 
 export interface AppProps {
@@ -11,32 +11,27 @@ export interface AppProps {
     isOfficeInitialized: boolean
 }
 
+const listItems = [
+    {
+        icon: "Ribbon",
+        primaryText: "Achieve more with Office integration",
+    },
+    {
+        icon: "Unlock",
+        primaryText: "Unlock features and functionality",
+    },
+    {
+        icon: "Design",
+        primaryText: "Create and visualize like a pro",
+    },
+] as HeroListItem[]
+
 const App = (props: AppProps) => {
-    const [listItems, setListItems] = useState([] as HeroListItem[])
-
-    useEffect(() => {
-        setListItems([
-            {
-                icon: "Ribbon",
-                primaryText: "Achieve more with Office integration",
-            },
-            {
-                icon: "Unlock",
-                primaryText: "Unlock features and functionality",
-            },
-            {
-                icon: "Design",
-                primaryText: "Create and visualize like a pro",
-            },
-        ]),
-            []
-    })
-
     if (!props.isOfficeInitialized) {
         return (
             <Progress
                 title={props.title}
-                logo={require("./../../../assets/icon.png")}
+                logo={icon}
                 message="Please sideload your addin to see app body."
             />
         )
@@ -44,11 +39,7 @@ const App = (props: AppProps) => {
 
     return (
         <div className="ms-welcome">
-            <Header
-                logo={require("./../../../assets/icon.png")}
-                title={props.title}
-                message="Welcome"
-            />
+            <Header logo={icon} title={props.title} message="Welcome" />
             <HeroList
                 message="Discover what Office Add-ins can do for you today!"
                 items={listItems}>
