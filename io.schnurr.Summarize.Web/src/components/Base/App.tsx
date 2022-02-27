@@ -2,9 +2,9 @@ import { DefaultButton } from "@fluentui/react"
 import * as React from "react"
 import { useEffect, useState } from "react"
 
+import HeroList, { HeroListItem } from "../HeroList/HeroList"
+import Progress from "../Shared/Progress"
 import Header from "./Header"
-import HeroList, { HeroListItem } from "./HeroList"
-import Progress from "./Progress"
 
 export interface AppProps {
     title: string
