@@ -24,6 +24,12 @@
     "typeRoots": [
       "node_modules/@types"
     ],
+    "baseUrl": "./src",
+    "paths": {
+      "@assets/*": [
+        "./../assets/*",
+      ],
+    },
   },
   "include": [
     "src",

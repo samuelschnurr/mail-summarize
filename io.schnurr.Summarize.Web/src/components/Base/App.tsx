@@ -1,9 +1,9 @@
+import icon from "@assets/icon.png"
 import { DefaultButton } from "@fluentui/react"
 import * as React from "react"
 
 import HeroList, { HeroListItem } from "../HeroList/HeroList"
 import Progress from "../Shared/Progress"
-import icon from "./../../../assets/icon.png"
 import Header from "./Header"
 
 export interface AppProps {
