@@ -8,7 +8,7 @@ const urlProd = "https://www.replace:3000/";
 
 async function getHttpsOptions() {
   const httpsOptions = await getHttpsServerOptions();
-  return { cacert: httpsOptions.ca, key: httpsOptions.key, cert: httpsOptions.cert };
+  return { ca: httpsOptions.ca, key: httpsOptions.key, cert: httpsOptions.cert };
 }
 
 export default async (env, options) => {
