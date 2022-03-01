@@ -11,6 +11,10 @@
     {
       "name": "io.schnurr.Summarize.Web",
       "path": "io.schnurr.Summarize.Web"
+    },
+    {
+      "name": "io.schnurr.Summarize.Infrastructure",
+      "path": "io.schnurr.Summarize.Infrastructure"
     }
   ],
   "settings": {
