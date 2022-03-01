@@ -7,6 +7,12 @@ terraform {
       version = "~> 2.65"
     }
   }
+  cloud {
+    organization = "io-schnurr"
+    workspaces {
+      name = "mailsummarize"
+    }
+  }
 }
 
 provider "azurerm" {
