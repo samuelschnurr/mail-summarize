@@ -354,3 +354,8 @@ MigrationBackup/
 
 # NPM Dist folder
 **/dist
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
