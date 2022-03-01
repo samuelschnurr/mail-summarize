@@ -7,6 +7,8 @@ terraform {
       version = "~> 2.65"
     }
   }
+
+  # Remove cloud property to use local state
   cloud {
     organization = "io-schnurr"
     workspaces {
