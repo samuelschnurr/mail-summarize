@@ -10,6 +10,12 @@ variable "APPLICATION_NAME" {
   default     = "mailsummarize"
 }
 
+variable "RESOURCE_GROUP_NAME" {
+  description = "Name of the resource group"
+  type        = string
+  default     = "rg-mailsummarize"
+}
+
 # These variables need to be set to instantiate the azure ressources
 # Enter default values for local development but dont commit them to git
 variable "SUBSCRIPTION_ID" {
