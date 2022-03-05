@@ -1,4 +1,3 @@
-# Configure the Azure provider
 terraform {
   required_version = ">= 1.1.0"
   required_providers {
@@ -8,12 +7,11 @@ terraform {
     }
   }
 
-  # Remove cloud property to use local state
-  cloud {
-    organization = "io-schnurr"
-    workspaces {
-      name = "mailsummarize"
-    }
+  backend "azurerm" {
+    resource_group_name  = "rg-mailsummarize"
+    storage_account_name = "stmailsummarizetfstate"
+    container_name       = "tfstate"
+    key                  = "state"
   }
 }
 
@@ -23,10 +21,4 @@ provider "azurerm" {
   client_secret   = var.SP_CLIENT_SECRET
   tenant_id       = var.SP_TENANT_ID
   features {}
-}
-
-# Create resource group
-resource "azurerm_resource_group" "rg" {
-  name     = "rg-${var.APPLICATION_NAME}"
-  location = var.AZURE_REGION
 }
