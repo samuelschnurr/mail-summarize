@@ -22,3 +22,10 @@ provider "azurerm" {
   tenant_id       = var.SP_TENANT_ID
   features {}
 }
+
+module "function-app" {
+  source              = "./modules/function-app"
+  APPLICATION_NAME    = var.APPLICATION_NAME
+  RESOURCE_GROUP_NAME = var.RESOURCE_GROUP_NAME
+  AZURE_REGION        = var.AZURE_REGION
+}
