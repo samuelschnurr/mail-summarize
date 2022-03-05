@@ -12,6 +12,7 @@ Terraform
 - https://releases.hashicorp.com/terraform/1.1.6/
 - Install Guide https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/azure-get-started
 
-Terraform Cloud
+Azure setup
 
-- Setup Guide https://www.terraform.io/cloud-docs/users-teams-organizations/users
+- Initial Create RG
+- Initial Create Storage + Container (show params)
