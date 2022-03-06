@@ -1,30 +1,14 @@
 import icon from "@assets/icon.png"
-import { DefaultButton } from "@fluentui/react"
 import * as React from "react"
 
-import HeroList, { HeroListItem } from "../HeroList/HeroList"
 import Progress from "../Shared/Progress"
+import Summary from "../Summary/Summary"
 import Header from "./Header"
 
 export interface AppProps {
     title: string
     isOfficeInitialized: boolean
 }
-
-const listItems = [
-    {
-        icon: "Ribbon",
-        primaryText: "Achieve more with Office integration",
-    },
-    {
-        icon: "Unlock",
-        primaryText: "Unlock features and functionality",
-    },
-    {
-        icon: "Design",
-        primaryText: "Create and visualize like a pro",
-    },
-] as HeroListItem[]
 
 const App = (props: AppProps) => {
     if (!props.isOfficeInitialized) {
@@ -40,19 +24,7 @@ const App = (props: AppProps) => {
     return (
         <div className="ms-welcome">
             <Header logo={icon} title={props.title} message="Welcome" />
-            <HeroList
-                message="Discover what Office Add-ins can do for you today!"
-                items={listItems}>
-                <p className="ms-font-l">
-                    Modify the source files, then click <b>Run</b>.
-                </p>
-                <DefaultButton
-                    className="ms-welcome__action"
-                    iconProps={{ iconName: "ChevronRight" }}
-                    onClick={() => alert("Clicked!")}>
-                    Run
-                </DefaultButton>
-            </HeroList>
+            <Summary />
         </div>
     )
 }
