@@ -21,7 +21,7 @@ const Summary = () => {
         )
     }, [])
 
-    if(!mailInput.body && !mailInput.error){
+    if (!mailInput.body && !mailInput.error) {
         return <Progress message="Loading" />
     }
 
@@ -31,12 +31,13 @@ const Summary = () => {
                 {mailInput.error}
             </h2>
             {!mailInput.error && (
-            <DefaultButton
-                className="ms-welcome__action"
-                iconProps={{ iconName: "ChevronRight" }}
-                onClick={() => alert("Clicked!")}>
-                Extend summary
-            </DefaultButton>)}
+                <DefaultButton
+                    className="ms-welcome__action"
+                    iconProps={{ iconName: "ChevronRight" }}
+                    onClick={() => alert("Clicked!")}>
+                    Extend summary
+                </DefaultButton>
+            )}
         </main>
     )
 }
