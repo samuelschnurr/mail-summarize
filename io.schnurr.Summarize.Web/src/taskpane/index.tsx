@@ -23,8 +23,6 @@ const render = (Component: any) => {
     )
 }
 
-// Imported javascript api via cdn in taskpane.html
-// eslint-disable-next-line no-undef
 Office.onReady(() => {
     isOfficeInitialized = true
     render(App)
