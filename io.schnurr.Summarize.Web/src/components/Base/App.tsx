@@ -2,7 +2,7 @@ import icon from "@assets/icon.png"
 import * as React from "react"
 
 import Progress from "../Shared/Progress"
-import Summary from "../Summary/Summary"
+import Summary from "../Summary"
 import Header from "./Header"
 
 export interface AppProps {
