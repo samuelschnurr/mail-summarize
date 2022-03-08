@@ -8,8 +8,8 @@ const urlDev = "https://localhost:3000/"
 const urlProd = "https://www.replace:3000/"
 
 async function getHttpsOptions() {
-  const httpsOptions = await getHttpsServerOptions();
-  return { ca: httpsOptions.ca, key: httpsOptions.key, cert: httpsOptions.cert };
+    const httpsOptions = await getHttpsServerOptions()
+    return { ca: httpsOptions.ca, key: httpsOptions.key, cert: httpsOptions.cert }
 }
 
 export default async (env, options) => {
@@ -88,6 +88,11 @@ export default async (env, options) => {
             }),
             new webpack.ProvidePlugin({
                 Promise: ["es6-promise", "Promise"],
+            }),
+            new webpack.DefinePlugin({
+                "process.env.API_URL": dev
+                    ? JSON.stringify("https://www.devapi.com")
+                    : JSON.stringify("https://www.prodapi.com"),
             }),
         ],
         devServer: {
