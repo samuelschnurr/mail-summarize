@@ -1,5 +1,6 @@
 import { initializeIcons } from "@fluentui/font-icons-mdl2"
 import { ThemeProvider } from "@fluentui/react"
+import initializeAxios from "appsetup/axios"
 import * as React from "react"
 import * as ReactDOM from "react-dom"
 import { AppContainer } from "react-hot-loader"
@@ -7,6 +8,7 @@ import { AppContainer } from "react-hot-loader"
 import App from "./../components/Base/App"
 
 initializeIcons()
+initializeAxios()
 
 let isOfficeInitialized = false
 
