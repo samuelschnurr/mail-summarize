@@ -91,7 +91,7 @@ export default async (env, options) => {
             }),
             new webpack.DefinePlugin({
                 "process.env.API_URL": dev
-                    ? JSON.stringify("https://www.devapi.com")
+                    ? JSON.stringify("http://localhost:7071/api")
                     : JSON.stringify("https://www.prodapi.com"),
             }),
         ],
