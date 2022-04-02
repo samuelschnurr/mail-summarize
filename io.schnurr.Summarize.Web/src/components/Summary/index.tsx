@@ -1,4 +1,5 @@
-import { DefaultButton } from "@fluentui/react"
+import { DefaultButton, Stack } from "@fluentui/react"
+import { Text } from "@fluentui/react/lib/Text"
 import Progress from "components/Shared/Progress"
 import * as React from "react"
 import { useEffect, useState } from "react"
@@ -48,19 +49,29 @@ const Summary = () => {
         return <Progress message="Loading" />
     }
 
+    const tokens = {
+        headingStack: {
+            childrenGap: 5,
+        },
+    }
+
     return (
         <main className="ms-welcome__main">
-            <h2 className="ms-font-xl ms-fontWeight-semilight ms-fontColor-neutralPrimary ms-u-slideUpIn20">
-                {mailInput.error || mailSummary.summary}
-            </h2>
-            <DefaultButton
-                className="ms-welcome__action"
-                iconProps={{ iconName: "ChevronRight" }}
-                onClick={() => {
-                    console.log("Extend")
-                }}>
-                Extend summary
-            </DefaultButton>
+            <Stack tokens={tokens.headingStack}>
+                <Text variant={"large"} block>
+                    Summary
+                </Text>
+                <Text>{mailInput.error || mailSummary.summary}</Text>
+
+                <DefaultButton
+                    className="ms-welcome__action"
+                    iconProps={{ iconName: "ChevronRight" }}
+                    onClick={() => {
+                        console.log("Extend")
+                    }}>
+                    Extend
+                </DefaultButton>
+            </Stack>
         </main>
     )
 }
