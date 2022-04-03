@@ -1,4 +1,4 @@
-import { DefaultButton, Slider, Stack } from "@fluentui/react"
+import { DefaultButton, IStackStyles, Slider, Stack } from "@fluentui/react"
 import { Text } from "@fluentui/react/lib/Text"
 import Progress from "components/Shared/Progress"
 import * as React from "react"
@@ -39,15 +39,22 @@ const Summary = () => {
     const tokens = {
         sectionStack: {
             childrenGap: 15,
+            fullWidth: true,
         },
         headingStack: {
             childrenGap: 5,
         },
     }
 
+    const stackStyles: IStackStyles = {
+        root: {
+            width: "100%",
+        },
+    }
+
     return (
         <main className="ms-welcome__main">
-            <Stack tokens={tokens.sectionStack}>
+            <Stack tokens={tokens.sectionStack} styles={stackStyles}>
                 <Stack tokens={tokens.headingStack} horizontalAlign="center">
                     <Stack.Item>
                         <Slider
