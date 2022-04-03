@@ -1,4 +1,4 @@
-import { DefaultButton, Stack } from "@fluentui/react"
+import { DefaultButton, Slider, Stack } from "@fluentui/react"
 import { Text } from "@fluentui/react/lib/Text"
 import Progress from "components/Shared/Progress"
 import * as React from "react"
@@ -7,6 +7,9 @@ import { analyzeMail } from "services/cognitiveService"
 import { getMailInput } from "services/officeService"
 
 const Summary = () => {
+    const [sliderValue, setSliderValue] = useState(3)
+    const handleSliderChange = (value: number) => setSliderValue(value)
+
     const [mailInput, setMailInput] = useState({
         body: "",
         error: "",
@@ -50,6 +53,9 @@ const Summary = () => {
     }
 
     const tokens = {
+        sectionStack: {
+            childrenGap: 15,
+        },
         headingStack: {
             childrenGap: 5,
         },
@@ -57,20 +63,41 @@ const Summary = () => {
 
     return (
         <main className="ms-welcome__main">
-            <Stack tokens={tokens.headingStack}>
-                <Text variant={"large"} block>
-                    Summary
-                </Text>
-                <Text>{mailInput.error || mailSummary.summary}</Text>
-
-                <DefaultButton
-                    className="ms-welcome__action"
-                    iconProps={{ iconName: "ChevronRight" }}
-                    onClick={() => {
-                        console.log("Extend")
-                    }}>
-                    Extend
-                </DefaultButton>
+            <Stack tokens={tokens.sectionStack}>
+                <Stack tokens={tokens.headingStack} horizontalAlign="center">
+                    <Stack.Item>
+                        <Slider
+                            label="Summary length in sentences"
+                            min={1}
+                            max={20}
+                            value={sliderValue}
+                            onChange={handleSliderChange}
+                            showValue
+                        />
+                    </Stack.Item>
+                    <Stack.Item>
+                        <DefaultButton
+                            className="ms-welcome__action"
+                            iconProps={{ iconName: "ChevronRight" }}
+                            onClick={() => {
+                                console.log("STart")
+                            }}>
+                            Start
+                        </DefaultButton>
+                    </Stack.Item>
+                </Stack>
+                <Stack tokens={tokens.headingStack}>
+                    <Text variant={"large"} block>
+                        Summary
+                    </Text>
+                    <Text>{mailInput.error || mailSummary.summary}</Text>
+                </Stack>
+                <Stack tokens={tokens.headingStack}>
+                    <Text variant={"large"} block>
+                        Sentiment
+                    </Text>
+                    <Text>{mailInput.error || mailSummary.sentiment}</Text>
+                </Stack>
             </Stack>
         </main>
     )
