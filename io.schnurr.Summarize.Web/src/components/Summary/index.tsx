@@ -84,18 +84,22 @@ const Summary = () => {
                         </DefaultButton>
                     </Stack.Item>
                 </Stack>
-                <Stack tokens={tokens.headingStack}>
-                    <Text variant={"large"} block>
-                        Summary
-                    </Text>
-                    <Text>{mailInput.error || mailSummary.summary}</Text>
-                </Stack>
-                <Stack tokens={tokens.headingStack}>
-                    <Text variant={"large"} block>
-                        Sentiment
-                    </Text>
-                    <Text>{mailInput.error || mailSummary.sentiment}</Text>
-                </Stack>
+                {mailSummary.summary && (
+                    <Stack tokens={tokens.headingStack}>
+                        <Text variant={"large"} block>
+                            Summary
+                        </Text>
+                        <Text>{mailSummary.summary}</Text>
+                    </Stack>
+                )}
+                {mailSummary.sentiment && (
+                    <Stack tokens={tokens.headingStack}>
+                        <Text variant={"large"} block>
+                            Sentiment
+                        </Text>
+                        <Text>{mailSummary.sentiment}</Text>
+                    </Stack>
+                )}
             </Stack>
         </main>
     )
