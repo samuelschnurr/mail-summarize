@@ -31,24 +31,8 @@ const Summary = () => {
         )
     }, [])
 
-    useEffect(() => {
-        if (mailInput.body) {
-            analyzeMail(mailInput.body).then(result => {
-                setMailSummary({
-                    summary: result.data[0].Summary,
-                    sentiment: result.data[0].Sentiment,
-                })
-            })
-        }
-    }, [mailInput.body])
-
     // Loading input
     if (!mailInput.body && !mailInput.error) {
-        return <Progress message="Loading" />
-    }
-
-    // Loading summary
-    if (mailInput.body && !mailSummary.summary && !mailSummary.sentiment) {
         return <Progress message="Loading" />
     }
 
@@ -80,7 +64,14 @@ const Summary = () => {
                             className="ms-welcome__action"
                             iconProps={{ iconName: "ChevronRight" }}
                             onClick={() => {
-                                console.log("STart")
+                                if (mailInput.body) {
+                                    analyzeMail(mailInput.body).then(result => {
+                                        setMailSummary({
+                                            summary: result.data[0].Summary,
+                                            sentiment: result.data[0].Sentiment,
+                                        })
+                                    })
+                                }
                             }}>
                             Start
                         </DefaultButton>
