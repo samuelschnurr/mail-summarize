@@ -1,8 +1,8 @@
 import axios from "axios"
 
-export const analyzeMail = (mailInput: string) =>
+export const analyzeMail = (mailContent: string, maxSentenceCount: number) =>
     axios({
         method: "POST",
         url: "/SummarizeFunction",
-        data: { mailInput },
+        data: { MailContent: mailContent, MaxSentenceCount: maxSentenceCount },
     })
