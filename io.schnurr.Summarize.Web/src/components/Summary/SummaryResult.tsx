@@ -1,7 +1,7 @@
 import { Stack } from "@fluentui/react"
 import { Text } from "@fluentui/react/lib/Text"
 import * as React from "react"
-import stackTokens from "utils/stackTokens"
+import { stackTokens } from "utils/stackStyles"
 
 const SummaryResult = ({ summary, sentiment }: { summary: string; sentiment: string }) => {
     return (

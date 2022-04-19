@@ -1,18 +1,12 @@
-import { IStackStyles, Stack } from "@fluentui/react"
+import { Stack } from "@fluentui/react"
 import Progress from "components/Shared/Progress"
 import * as React from "react"
 import { useState } from "react"
 import { analyzeMail } from "services/cognitiveService"
-import stackTokens from "utils/stackTokens"
+import { stackStyles, stackTokens } from "utils/stackStyles"
 
 import SummaryConfiguration from "./SummaryConfiguration"
 import SummaryResult from "./SummaryResult"
-
-const stackStyles: IStackStyles = {
-    root: {
-        width: "100%",
-    },
-}
 
 const Summary = () => {
     const [mailSummary, setMailSummary] = useState({
@@ -48,7 +42,7 @@ const Summary = () => {
 
     return (
         <main className="ms-welcome__main">
-            <Stack tokens={stackTokens.section} styles={stackStyles}>
+            <Stack tokens={stackTokens.heading} styles={stackStyles}>
                 <SummaryConfiguration onStartAnalyze={handleStartAnalyze} />
                 <SummaryResult summary={mailSummary.summary} sentiment={mailSummary.sentiment} />
             </Stack>

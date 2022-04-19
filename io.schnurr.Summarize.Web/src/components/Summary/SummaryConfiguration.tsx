@@ -3,7 +3,7 @@ import Progress from "components/Shared/Progress"
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { getMailItem } from "services/officeService"
-import stackTokens from "utils/stackTokens"
+import { stackItemStyles, stackTokens } from "utils/stackStyles"
 
 const SummaryConfiguration = ({
     onStartAnalyze,
@@ -44,7 +44,7 @@ const SummaryConfiguration = ({
 
     return (
         <Stack tokens={stackTokens.heading} horizontalAlign="center">
-            <Stack.Item>
+            <Stack.Item styles={stackItemStyles}>
                 <Slider
                     label="Summary length in sentences"
                     min={1}
