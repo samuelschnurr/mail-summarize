@@ -1,5 +1,6 @@
 using Azure;
 using Azure.AI.TextAnalytics;
+using io.schnurr.Summarize.Api.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
