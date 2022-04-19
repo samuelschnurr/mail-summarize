@@ -4,13 +4,13 @@ import Progress from "components/Shared/Progress"
 import * as React from "react"
 import { useEffect, useState } from "react"
 import { analyzeMail } from "services/cognitiveService"
-import { getMailInput } from "services/officeService"
+import { getMailItem } from "services/officeService"
 
 const Summary = () => {
     const [sliderValue, setSliderValue] = useState(3)
     const handleSliderChange = (value: number) => setSliderValue(value)
 
-    const [mailInput, setMailInput] = useState({
+    const [mailItem, setMailItem] = useState({
         body: "",
         error: "",
     })
@@ -21,18 +21,18 @@ const Summary = () => {
     })
 
     useEffect(() => {
-        getMailInput().then(
+        getMailItem().then(
             (body: string) => {
-                setMailInput({ body: body, error: "" })
+                setMailItem({ body: body, error: "" })
             },
             (error: string) => {
-                setMailInput({ body: "", error: error })
+                setMailItem({ body: "", error: error })
             }
         )
     }, [])
 
     // Loading input
-    if (!mailInput.body && !mailInput.error) {
+    if (!mailItem.body && !mailItem.error) {
         return <Progress message="Loading" />
     }
 
@@ -71,8 +71,8 @@ const Summary = () => {
                             className="ms-welcome__action"
                             iconProps={{ iconName: "ChevronRight" }}
                             onClick={() => {
-                                if (mailInput.body) {
-                                    analyzeMail(mailInput.body).then(result => {
+                                if (mailItem.body) {
+                                    analyzeMail(mailItem.body, sliderValue).then(result => {
                                         setMailSummary({
                                             summary: result.data[0].Summary,
                                             sentiment: result.data[0].Sentiment,

@@ -1,4 +1,4 @@
-export const getMailInput = (): Promise<string> => {
+export const getMailItem = (): Promise<string> => {
     return new Promise<string>((resolve, reject) => {
         const mailBoxItem = Office?.context?.mailbox?.item
 
