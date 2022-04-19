@@ -1,105 +1,56 @@
-import { DefaultButton, IStackStyles, Slider, Stack } from "@fluentui/react"
-import { Text } from "@fluentui/react/lib/Text"
+import { IStackStyles, Stack } from "@fluentui/react"
 import Progress from "components/Shared/Progress"
 import * as React from "react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { analyzeMail } from "services/cognitiveService"
-import { getMailItem } from "services/officeService"
+import stackTokens from "utils/stackTokens"
+
+import SummaryConfiguration from "./SummaryConfiguration"
+import SummaryResult from "./SummaryResult"
+
+const stackStyles: IStackStyles = {
+    root: {
+        width: "100%",
+    },
+}
 
 const Summary = () => {
-    const [sliderValue, setSliderValue] = useState(3)
-    const handleSliderChange = (value: number) => setSliderValue(value)
-
-    const [mailItem, setMailItem] = useState({
-        body: "",
-        error: "",
-    })
-
     const [mailSummary, setMailSummary] = useState({
         summary: "",
         sentiment: "",
+        isProcessing: false,
     })
 
-    useEffect(() => {
-        getMailItem().then(
-            (body: string) => {
-                setMailItem({ body: body, error: "" })
+    const handleStartAnalyze = (mailBody: string, sentenceCount: number) => {
+        setMailSummary({ ...mailSummary, isProcessing: true })
+        analyzeMail(mailBody, sentenceCount).then(
+            result => {
+                setMailSummary({
+                    summary: result.data[0].Summary,
+                    sentiment: result.data[0].Sentiment,
+                    isProcessing: false,
+                })
             },
-            (error: string) => {
-                setMailItem({ body: "", error: error })
+            error => {
+                setMailSummary({
+                    summary: error,
+                    sentiment: error,
+                    isProcessing: false,
+                })
             }
         )
-    }, [])
+    }
 
     // Loading input
-    if (!mailItem.body && !mailItem.error) {
-        return <Progress message="Loading" />
-    }
-
-    const tokens = {
-        sectionStack: {
-            childrenGap: 15,
-            fullWidth: true,
-        },
-        headingStack: {
-            childrenGap: 5,
-        },
-    }
-
-    const stackStyles: IStackStyles = {
-        root: {
-            width: "100%",
-        },
+    if (mailSummary.isProcessing) {
+        return <Progress message="Analysing your mail..." />
     }
 
     return (
         <main className="ms-welcome__main">
-            <Stack tokens={tokens.sectionStack} styles={stackStyles}>
-                <Stack tokens={tokens.headingStack} horizontalAlign="center">
-                    <Stack.Item>
-                        <Slider
-                            label="Summary length in sentences"
-                            min={1}
-                            max={20}
-                            value={sliderValue}
-                            onChange={handleSliderChange}
-                            showValue
-                        />
-                    </Stack.Item>
-                    <Stack.Item>
-                        <DefaultButton
-                            className="ms-welcome__action"
-                            iconProps={{ iconName: "ChevronRight" }}
-                            onClick={() => {
-                                if (mailItem.body) {
-                                    analyzeMail(mailItem.body, sliderValue).then(result => {
-                                        setMailSummary({
-                                            summary: result.data[0].Summary,
-                                            sentiment: result.data[0].Sentiment,
-                                        })
-                                    })
-                                }
-                            }}>
-                            Start
-                        </DefaultButton>
-                    </Stack.Item>
-                </Stack>
-                {mailSummary.summary && (
-                    <Stack tokens={tokens.headingStack}>
-                        <Text variant={"large"} block>
-                            Summary
-                        </Text>
-                        <Text>{mailSummary.summary}</Text>
-                    </Stack>
-                )}
-                {mailSummary.sentiment && (
-                    <Stack tokens={tokens.headingStack}>
-                        <Text variant={"large"} block>
-                            Sentiment
-                        </Text>
-                        <Text>{mailSummary.sentiment}</Text>
-                    </Stack>
-                )}
+            <Stack tokens={stackTokens.section} styles={stackStyles}>
+                <SummaryConfiguration onStartAnalyze={() => handleStartAnalyze} />
+                <SummaryResult summary={mailSummary.summary} sentiment={mailSummary.sentiment} />
             </Stack>
         </main>
     )
