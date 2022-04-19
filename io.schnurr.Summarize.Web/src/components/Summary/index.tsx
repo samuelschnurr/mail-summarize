@@ -27,8 +27,8 @@ const Summary = () => {
             },
             error => {
                 setMailSummary({
-                    summary: error,
-                    sentiment: error,
+                    summary: error.message,
+                    sentiment: error.message,
                     isProcessing: false,
                 })
             }
