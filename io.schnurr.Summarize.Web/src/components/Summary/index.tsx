@@ -49,7 +49,7 @@ const Summary = () => {
     return (
         <main className="ms-welcome__main">
             <Stack tokens={stackTokens.section} styles={stackStyles}>
-                <SummaryConfiguration onStartAnalyze={() => handleStartAnalyze} />
+                <SummaryConfiguration onStartAnalyze={handleStartAnalyze} />
                 <SummaryResult summary={mailSummary.summary} sentiment={mailSummary.sentiment} />
             </Stack>
         </main>

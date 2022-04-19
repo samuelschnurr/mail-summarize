@@ -58,7 +58,7 @@ const SummaryConfiguration = ({
                 <DefaultButton
                     className="ms-welcome__action"
                     iconProps={{ iconName: "ChevronRight" }}
-                    onClick={onStartAnalyze(mailItem.body, sentenceCount)}>
+                    onClick={() => onStartAnalyze(mailItem.body, sentenceCount)}>
                     Start
                 </DefaultButton>
             </Stack.Item>
