@@ -8,7 +8,7 @@ import { stackItemStyles, stackTokens } from "utils/stackStyles"
 const SummaryConfiguration = ({
     onStartAnalyze,
 }: {
-    onStartAnalyze: (mailBody: string, sentenceCount: number) => any
+    onStartAnalyze: (mailBody: string, sentenceCount: number) => void
 }) => {
     const [sentenceCount, setSentenceCount] = useState(3)
     const handleSentenceCountChange = (value: number) => setSentenceCount(value)
@@ -29,7 +29,6 @@ const SummaryConfiguration = ({
         )
     }, [])
 
-    // Loading input
     if (!mailItem.body && !mailItem.error) {
         return <Progress message="Loading mail input..." />
     }

@@ -35,7 +35,6 @@ const Summary = () => {
         )
     }
 
-    // Loading input
     if (mailSummary.isProcessing) {
         return <Progress message="Analysing your mail..." />
     }
