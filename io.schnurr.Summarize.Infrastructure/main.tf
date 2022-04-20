@@ -24,10 +24,9 @@ provider "azurerm" {
 }
 
 module "webapp" {
-  source              = "./modules/webapp"
-  APPLICATION_NAME    = var.APPLICATION_NAME
-  RESOURCE_GROUP_NAME = var.RESOURCE_GROUP_NAME
-  AZURE_REGION        = var.AZURE_REGION
+  source           = "./modules/webapp"
+  APPLICATION_NAME = var.APPLICATION_NAME
+  AZURE_REGION     = var.AZURE_REGION
 }
 
 module "cognitiveservice" {
