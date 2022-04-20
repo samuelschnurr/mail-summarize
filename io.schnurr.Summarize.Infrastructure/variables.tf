@@ -11,7 +11,7 @@ variable "APPLICATION_NAME" {
 }
 
 # These variables need to be set to instantiate the azure ressources
-# Enter default values for local development but dont commit them to git
+# Set here as default but dont commit - or set as environment variables
 variable "SUBSCRIPTION_ID" {
   description = "Subscription ID of the Azure subscription"
   type        = string
