@@ -5,11 +5,11 @@ import { useEffect, useState } from "react"
 import { getMailItem } from "services/officeService"
 import { stackItemStyles, stackTokens } from "utils/stackStyles"
 
-const SummaryConfiguration = ({
-    onStartAnalyze,
-}: {
+export interface SummaryConfigurationProps {
     onStartAnalyze: (mailBody: string, sentenceCount: number) => void
-}) => {
+}
+
+const SummaryConfiguration = (props: SummaryConfigurationProps) => {
     const [sentenceCount, setSentenceCount] = useState(3)
     const handleSentenceCountChange = (value: number) => setSentenceCount(value)
 
@@ -57,7 +57,7 @@ const SummaryConfiguration = ({
                 <DefaultButton
                     className="ms-welcome__action"
                     iconProps={{ iconName: "ChevronRight" }}
-                    onClick={() => onStartAnalyze(mailItem.body, sentenceCount)}>
+                    onClick={() => props.onStartAnalyze(mailItem.body, sentenceCount)}>
                     Start
                 </DefaultButton>
             </Stack.Item>

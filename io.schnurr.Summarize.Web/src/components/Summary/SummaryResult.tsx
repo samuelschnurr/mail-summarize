@@ -3,20 +3,25 @@ import { Text } from "@fluentui/react/lib/Text"
 import * as React from "react"
 import { stackTokens } from "utils/stackStyles"
 
-const SummaryResult = ({ summary, sentiment }: { summary: string; sentiment: string }) => {
+export interface SummaryResultProps {
+    summary: string
+    sentiment: string
+}
+
+const SummaryResult = (props: SummaryResultProps) => {
     return (
         <>
             <Stack tokens={stackTokens.heading}>
                 <Text variant={"large"} block>
                     Summary
                 </Text>
-                <Text>{summary}</Text>
+                <Text>{props.summary}</Text>
             </Stack>
             <Stack tokens={stackTokens.heading}>
                 <Text variant={"large"} block>
                     Sentiment
                 </Text>
-                <Text>{sentiment}</Text>
+                <Text>{props.sentiment}</Text>
             </Stack>
         </>
     )
