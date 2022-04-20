@@ -23,8 +23,15 @@ provider "azurerm" {
   features {}
 }
 
-module "mailsummarize" {
-  source              = "./modules/mailsummarize"
+module "webapp" {
+  source              = "./modules/webapp"
+  APPLICATION_NAME    = var.APPLICATION_NAME
+  RESOURCE_GROUP_NAME = var.RESOURCE_GROUP_NAME
+  AZURE_REGION        = var.AZURE_REGION
+}
+
+module "cognitiveservice" {
+  source              = "./modules/cognitiveservice"
   APPLICATION_NAME    = var.APPLICATION_NAME
   RESOURCE_GROUP_NAME = var.RESOURCE_GROUP_NAME
   AZURE_REGION        = var.AZURE_REGION
