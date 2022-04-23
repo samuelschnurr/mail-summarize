@@ -10,30 +10,32 @@ resource "azurerm_key_vault" "mailsummarize" {
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
   sku_name                    = "standard"
+}
 
+resource "azurerm_key_vault_access_policy" "mailsummarize_local" {
   # Enables access from localhost with az login
-  access_policy {
-    tenant_id = data.azurerm_client_config.current.tenant_id
-    object_id = data.azurerm_client_config.current.object_id
+  key_vault_id = azurerm_key_vault.mailsummarize.id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = data.azurerm_client_config.current.object_id
 
-    secret_permissions = [
-      "Get",
-      "List",
-      "Set",
-      "Delete"
-    ]
-  }
+  secret_permissions = [
+    "Get",
+    "List",
+    "Set",
+    "Delete"
+  ]
+}
 
+resource "azurerm_key_vault_access_policy" "mailsummarize_function" {
   # Access from function app when deployed
-  access_policy {
-    tenant_id = azurerm_function_app.mailsummarize.identity[0].tenant_id
-    object_id = azurerm_function_app.mailsummarize.identity[0].principal_id
+  key_vault_id = azurerm_key_vault.mailsummarize.id
+  tenant_id    = azurerm_function_app.mailsummarize.identity[0].tenant_id
+  object_id    = azurerm_function_app.mailsummarize.identity[0].principal_id
 
-    secret_permissions = [
-      "Get",
-      "List"
-    ]
-  }
+  secret_permissions = [
+    "Get",
+    "List"
+  ]
 }
 
 resource "azurerm_key_vault_secret" "cognitive_account_mailsummarize_endpoint" {
@@ -85,6 +87,10 @@ resource "azurerm_function_app" "mailsummarize" {
   storage_account_name       = azurerm_storage_account.mailsummarize.name
   storage_account_access_key = azurerm_storage_account.mailsummarize.primary_access_key
   version                    = "~3"
+
+  app_settings = {
+    "KeyVaultEndpoint" = azurerm_key_vault.mailsummarize.vault_uri
+  }
 
   identity {
     type = "SystemAssigned"
