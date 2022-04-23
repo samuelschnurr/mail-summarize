@@ -9,13 +9,13 @@ using Azure.AI.TextAnalytics;
 using io.schnurr.Summarize.Api.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
-
+using Microsoft.Azure.KeyVault;
+using Microsoft.Azure.Services.AppAuthentication;
 namespace io.schnurr.Summarize.Api
 {
     public static class SummarizeFunction
     {
-        private static readonly string AzureEndpoint = Environment.GetEnvironmentVariable(nameof(AzureEndpoint), EnvironmentVariableTarget.Process);
-        private static readonly string AzureKeyCredential = Environment.GetEnvironmentVariable(nameof(AzureKeyCredential), EnvironmentVariableTarget.Process);
+        private static readonly string KeyVaultEndpoint = Environment.GetEnvironmentVariable(nameof(KeyVaultEndpoint), EnvironmentVariableTarget.Process);
 
         [Function("SummarizeFunction")]
         public async static Task<HttpResponseData> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequestData req)
@@ -40,8 +40,14 @@ namespace io.schnurr.Summarize.Api
             var batchInput = new List<string>() { actionsInput.MailContent.Replace("\r", "").Replace("\n", "") };
             TextAnalyticsActions actions = GetTextAnalyticsActions(actionsInput, true);
 
-            var credentials = new AzureKeyCredential(AzureKeyCredential);
-            var endpoint = new Uri(AzureEndpoint);
+            //Az login is required to retreive key vault secrets from local execution. 
+            var azureServiceTokenProvider = new AzureServiceTokenProvider();
+            var keyVaultClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+            string cognitiveEndpoint = (await keyVaultClient.GetSecretAsync(KeyVaultEndpoint, "cognitive-account-endpoint"))?.Value;
+            string cognitiveSecret = (await keyVaultClient.GetSecretAsync(KeyVaultEndpoint, "cognitive-account-secret"))?.Value;
+
+            var credentials = new AzureKeyCredential(cognitiveSecret);
+            var endpoint = new Uri(cognitiveEndpoint);
             var client = new SummarizeClient(endpoint, credentials);
 
             List<PlainAnalyzeActionsResult> plainResults = await client.GetPlainAnalyzeActionsResultsAsync(actions, batchInput);
