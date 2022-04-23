@@ -5,7 +5,7 @@ data "azurerm_client_config" "current" {}
 resource "azurerm_key_vault" "mailsummarize" {
   name                        = "kv-${var.APPLICATION_NAME}"
   location                    = var.AZURE_REGION
-  resource_group_name         = "rg-${var.AZURE_REGION}"
+  resource_group_name         = "rg-${var.APPLICATION_NAME}"
   enabled_for_disk_encryption = true
   tenant_id                   = data.azurerm_client_config.current.tenant_id
   soft_delete_retention_days  = 7
