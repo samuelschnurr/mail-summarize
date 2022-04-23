@@ -89,6 +89,10 @@ resource "azurerm_function_app" "mailsummarize" {
   storage_account_access_key = azurerm_storage_account.mailsummarize.primary_access_key
   version                    = "~3"
 
+  site_config {
+    always_on = true
+  }
+
   app_settings = {
     "KeyVaultEndpoint" = azurerm_key_vault.mailsummarize.vault_uri
   }
