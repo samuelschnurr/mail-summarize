@@ -93,11 +93,19 @@ resource "azurerm_function_app" "mailsummarize" {
     always_on = true
   }
 
-  app_settings = {
-    "KeyVaultEndpoint" = azurerm_key_vault.mailsummarize.vault_uri
-  }
-
   identity {
     type = "SystemAssigned"
+  }
+
+  app_settings = {
+    "WEBSITE_RUN_FROM_PACKAGE" = "1",
+    "KeyVaultEndpoint"         = azurerm_key_vault.mailsummarize.vault_uri
+  }
+
+  lifecycle {
+    ignore_changes = [
+      # Prevent Terraform reporting configuration drift after app code is deployed
+      app_settings["WEBSITE_RUN_FROM_PACKAGE"],
+    ]
   }
 }
