@@ -1,5 +1,4 @@
 # Key Vault
-
 data "azurerm_client_config" "current" {}
 
 resource "azurerm_key_vault" "mailsummarize" {
@@ -73,4 +72,5 @@ resource "azurerm_function_app" "mailsummarize" {
   app_service_plan_id        = azurerm_app_service_plan.mailsummarize.id
   storage_account_name       = azurerm_storage_account.mailsummarize.name
   storage_account_access_key = azurerm_storage_account.mailsummarize.primary_access_key
+  version                    = "~3"
 }
