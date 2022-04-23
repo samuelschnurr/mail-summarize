@@ -73,4 +73,8 @@ resource "azurerm_function_app" "mailsummarize" {
   storage_account_name       = azurerm_storage_account.mailsummarize.name
   storage_account_access_key = azurerm_storage_account.mailsummarize.primary_access_key
   version                    = "~3"
+
+  identity {
+    type = "SystemAssigned"
+  }
 }
