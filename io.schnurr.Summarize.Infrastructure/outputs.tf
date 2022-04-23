@@ -1,6 +1,6 @@
-output "webapp_default_hostname" {
+output "app_storage_endpoint" {
   description = "Endpoint of the web app"
-  value       = "https://${module.webapp.webapp_default_hostname}"
+  value       = module.webapp.app_storage_endpoint
 }
 
 output "cognitive_endpoint" {

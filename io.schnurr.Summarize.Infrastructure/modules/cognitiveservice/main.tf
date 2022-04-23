@@ -61,7 +61,7 @@ resource "azurerm_cognitive_account" "mailsummarize" {
 }
 
 # Function App
-resource "azurerm_storage_account" "mailsummarize" {
+resource "azurerm_storage_account" "mailsummarize_api" {
   name                     = "sta${var.APPLICATION_NAME}api"
   resource_group_name      = "rg-${var.APPLICATION_NAME}"
   location                 = var.AZURE_REGION
@@ -85,8 +85,8 @@ resource "azurerm_function_app" "mailsummarize" {
   resource_group_name        = "rg-${var.APPLICATION_NAME}"
   location                   = var.AZURE_REGION
   app_service_plan_id        = azurerm_app_service_plan.mailsummarize.id
-  storage_account_name       = azurerm_storage_account.mailsummarize.name
-  storage_account_access_key = azurerm_storage_account.mailsummarize.primary_access_key
+  storage_account_name       = azurerm_storage_account.mailsummarize_api.name
+  storage_account_access_key = azurerm_storage_account.mailsummarize_api.primary_access_key
   version                    = "~3"
 
   site_config {
