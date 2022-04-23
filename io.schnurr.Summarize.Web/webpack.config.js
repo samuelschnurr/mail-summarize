@@ -4,8 +4,10 @@ import HtmlWebpackPlugin from "html-webpack-plugin"
 import webpack from "webpack"
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin"
 
-const urlDev = "https://localhost:3000/"
-const urlProd = "https://www.replace:3000/"
+const appUrlDev = "https://localhost:3000/"
+const appUrlProd = "https://app-mailsummarize.azurewebsites.net/"
+const apiUrlDev = "http://localhost:7071/api"
+const apiUrlProd = "https://fa-mailsummarize.azurewebsites.net/api"
 
 async function getHttpsOptions() {
     const httpsOptions = await getHttpsServerOptions()
@@ -75,7 +77,7 @@ export default async (env, options) => {
                             if (dev) {
                                 return content
                             } else {
-                                return content.toString().replace(new RegExp(urlDev, "g"), urlProd)
+                                return content.toString().replace(new RegExp(appUrlDev, "g"), appUrlProd)
                             }
                         },
                     },
@@ -91,8 +93,8 @@ export default async (env, options) => {
             }),
             new webpack.DefinePlugin({
                 "process.env.API_URL": dev
-                    ? JSON.stringify("http://localhost:7071/api")
-                    : JSON.stringify("https://www.prodapi.com"),
+                    ? JSON.stringify(apiUrlDev)
+                    : JSON.stringify(apiUrlProd),
             }),
         ],
         devServer: {
