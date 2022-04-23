@@ -11,6 +11,7 @@ resource "azurerm_key_vault" "mailsummarize" {
   purge_protection_enabled    = false
   sku_name                    = "standard"
 
+  # Enables access from localhost with az login
   access_policy {
     tenant_id = data.azurerm_client_config.current.tenant_id
     object_id = data.azurerm_client_config.current.object_id
@@ -20,6 +21,17 @@ resource "azurerm_key_vault" "mailsummarize" {
       "List",
       "Set",
       "Delete"
+    ]
+  }
+
+  # Access from function app when deployed
+  access_policy {
+    tenant_id = azurerm_function_app.mailsummarize.identity[0].tenant_id
+    object_id = azurerm_function_app.mailsummarize.identity[0].principal_id
+
+    secret_permissions = [
+      "Get",
+      "List"
     ]
   }
 }
