@@ -16,3 +16,6 @@ Azure setup
 
 - Initial Create RG
 - Initial Create Storage + Container (show params)
+
+Creates Resources
+Sets Cognitive URI and Secret in KeyVault (is used wie keyvault client in function - login needed)

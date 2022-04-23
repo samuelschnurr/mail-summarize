@@ -18,9 +18,23 @@ resource "azurerm_key_vault" "mailsummarize" {
 
     secret_permissions = [
       "Get",
-      "List"
+      "List",
+      "Set",
+      "Delete"
     ]
   }
+}
+
+resource "azurerm_key_vault_secret" "cognitive_account_mailsummarize_endpoint" {
+  name         = "cognitive-account-endpoint"
+  value        = azurerm_cognitive_account.mailsummarize.endpoint
+  key_vault_id = azurerm_key_vault.mailsummarize.id
+}
+
+resource "azurerm_key_vault_secret" "cognitive_account_mailsummarize_secret" {
+  name         = "cognitive-account-secret"
+  value        = azurerm_cognitive_account.mailsummarize.primary_access_key
+  key_vault_id = azurerm_key_vault.mailsummarize.id
 }
 
 # Text Analytics
