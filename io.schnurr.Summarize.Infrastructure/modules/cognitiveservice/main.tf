@@ -91,6 +91,9 @@ resource "azurerm_function_app" "mailsummarize" {
 
   site_config {
     always_on = true
+    cors {
+      allowed_origins = ["*"]
+    }
   }
 
   identity {
