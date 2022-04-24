@@ -27,6 +27,7 @@ Setup Infrastructure
                         default     = "mailsummarize"
                     }
 
+Deploy:
     - Infrastructur Projekt:
         - terraform init
         - terraform apply
