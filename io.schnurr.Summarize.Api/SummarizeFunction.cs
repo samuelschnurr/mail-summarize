@@ -6,12 +6,12 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Azure;
 using Azure.AI.TextAnalytics;
-using io.schnurr.Summarize.Api.Models;
+using Io.Schnurr.Summarize.Api.Models;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Azure.KeyVault;
 using Microsoft.Azure.Services.AppAuthentication;
-namespace io.schnurr.Summarize.Api
+namespace Io.Schnurr.Summarize.Api
 {
     public static class SummarizeFunction
     {

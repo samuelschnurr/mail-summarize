@@ -1,4 +1,4 @@
-namespace io.schnurr.Summarize.Api.Models
+namespace Io.Schnurr.Summarize.Api.Models
 {
     public class PlainAnalyzeActionsInput
     {
