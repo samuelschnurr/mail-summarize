@@ -5,16 +5,16 @@
       "path": ".git"
     },
     {
-      "name": "io.schnurr.Summarize.Api",
-      "path": "io.schnurr.Summarize.Api"
+      "name": "io.schnurr.summarize.api",
+      "path": "io.schnurr.summarize.api"
     },
     {
-      "name": "io.schnurr.Summarize.Web",
-      "path": "io.schnurr.Summarize.Web"
+      "name": "io.schnurr.summarize.web",
+      "path": "io.schnurr.summarize.web"
     },
     {
-      "name": "io.schnurr.Summarize.Infrastructure",
-      "path": "io.schnurr.Summarize.Infrastructure"
+      "name": "io.schnurr.summarize.infrastructure",
+      "path": "io.schnurr.summarize.infrastructure"
     }
   ],
   "settings": {
