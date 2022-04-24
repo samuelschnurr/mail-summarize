@@ -19,23 +19,18 @@ resource "azurerm_key_vault_access_policy" "mailsummarize_local" {
   object_id    = data.azurerm_client_config.current.object_id
 
   secret_permissions = [
-    "Get",
-    "List",
-    "Set",
-    "Delete",
-    "Purge",
+    "Get", "List", "Delete", "Purge", "Set", "Backup", "Restore", "Recover"
   ]
 }
 
 resource "azurerm_key_vault_access_policy" "mailsummarize_function" {
   # Access from function app when deployed
   key_vault_id = azurerm_key_vault.mailsummarize.id
-  tenant_id    = azurerm_function_app.mailsummarize.identity[0].tenant_id
-  object_id    = azurerm_function_app.mailsummarize.identity[0].principal_id
+  tenant_id    = data.azurerm_client_config.current.tenant_id
+  object_id    = azurerm_function_app.mailsummarize.identity.0.principal_id
 
   secret_permissions = [
-    "Get",
-    "List"
+    "Get", "List"
   ]
 }
 
