@@ -1,5 +1,6 @@
 {
   "recommendations": [
+    "ms-azuretools.vscode-azurestorage",
     "ms-edgedevtools.vscode-edge-devtools",
     "msoffice.microsoft-office-add-in-debugger",
     "dbaeumer.vscode-eslint",
