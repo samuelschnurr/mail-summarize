@@ -10,17 +10,16 @@ resource "azurerm_key_vault" "mailsummarize" {
   soft_delete_retention_days  = 7
   purge_protection_enabled    = false
   sku_name                    = "standard"
-}
 
-resource "azurerm_key_vault_access_policy" "mailsummarize_local" {
-  # Enables access from localhost with az login
-  key_vault_id = azurerm_key_vault.mailsummarize.id
-  tenant_id    = data.azurerm_client_config.current.tenant_id
-  object_id    = data.azurerm_client_config.current.object_id
+  access_policy {
+    # Enables access from localhost with az login
+    tenant_id = data.azurerm_client_config.current.tenant_id
+    object_id = data.azurerm_client_config.current.object_id
 
-  secret_permissions = [
-    "Get", "List", "Delete", "Purge", "Set", "Backup", "Restore", "Recover"
-  ]
+    secret_permissions = [
+      "Get", "List", "Delete", "Purge", "Set", "Backup", "Restore", "Recover"
+    ]
+  }
 }
 
 resource "azurerm_key_vault_access_policy" "mailsummarize_function" {
