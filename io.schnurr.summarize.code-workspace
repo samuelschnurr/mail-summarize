@@ -1,0 +1,30 @@
+{
+  "folders": [
+    {
+      "name": ".git",
+      "path": ".git"
+    },
+    {
+      "name": "io.schnurr.summarize.api",
+      "path": "io.schnurr.summarize.api"
+    },
+    {
+      "name": "io.schnurr.summarize.web",
+      "path": "io.schnurr.summarize.web"
+    },
+    {
+      "name": "io.schnurr.summarize.infrastructure",
+      "path": "io.schnurr.summarize.infrastructure"
+    }
+  ],
+  "settings": {
+    "debug.internalConsoleOptions": "neverOpen",
+    "editor.tabSize": 4,
+    "editor.detectIndentation": true,
+    "editor.insertSpaces": true,
+    // If opened as workspace, Pre language configuration and
+    // folder configuration do not work on omnisharp
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+  },
+}

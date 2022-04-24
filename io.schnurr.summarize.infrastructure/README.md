@@ -1,0 +1,21 @@
+Requirements
+
+AzureCLI
+
+- v2.33.1
+- https://azcliprod.blob.core.windows.net/msi/azure-cli-2.33.1.msi
+- Install Guide https://aka.ms/installazurecliwindows
+
+Terraform
+
+- v1.1.6
+- https://releases.hashicorp.com/terraform/1.1.6/
+- Install Guide https://learn.hashicorp.com/tutorials/terraform/install-cli?in=terraform/azure-get-started
+
+Azure setup
+
+- Initial Create RG
+- Initial Create Storage + Container (show params)
+
+Creates Resources
+Sets Cognitive URI and Secret in KeyVault (is used wie keyvault client in function - login needed)
