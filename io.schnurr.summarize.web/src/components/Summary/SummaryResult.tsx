@@ -9,22 +9,25 @@ export interface SummaryResultProps {
 }
 
 const SummaryResult = (props: SummaryResultProps) => {
-    return (
-        <>
-            <Stack tokens={stackTokens.heading}>
-                <Text variant={"large"} block>
-                    Summary
-                </Text>
-                <Text>{props.summary}</Text>
-            </Stack>
-            <Stack tokens={stackTokens.heading}>
-                <Text variant={"large"} block>
-                    Sentiment
-                </Text>
-                <Text>{props.sentiment}</Text>
-            </Stack>
-        </>
-    )
+    if (props.summary || props.sentiment) {
+        return (
+            <>
+                <Stack tokens={stackTokens.heading}>
+                    <Text variant={"large"} block>
+                        Summary
+                    </Text>
+                    <Text>{props.summary}</Text>
+                </Stack>
+                <Stack tokens={stackTokens.heading}>
+                    <Text variant={"large"} block>
+                        Sentiment
+                    </Text>
+                    <Text>{props.sentiment}</Text>
+                </Stack>
+            </>
+        )
+    }
+    return <></>
 }
 
 export default SummaryResult
