@@ -86,13 +86,13 @@ namespace Io.Schnurr.Summarize.Api
             {
                 if (summaryResult.HasError)
                 {
-                    sb.Append($"{summaryResult.Error.ErrorCode}: {summaryResult.Error.Message}.");
+                    sb.AppendLine($"{summaryResult.Error.ErrorCode}: {summaryResult.Error.Message}.");
                     continue;
                 }
 
                 foreach (SummarySentence sentence in summaryResult.Sentences)
                 {
-                    sb.Append(sentence.Text);
+                    sb.AppendLine(sentence.Text);
                 }
             }
 
