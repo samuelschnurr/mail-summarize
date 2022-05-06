@@ -1,5 +1,6 @@
 import icon from "@assets/icon.png"
 import * as React from "react"
+import { useEffect, useState } from "react"
 
 import Placemat from "../Placemat"
 import Progress from "../Shared/Progress"
@@ -11,9 +12,20 @@ export interface AppProps {
     isOfficeInitialized: boolean
 }
 
-const disablePlacemat = Office.context.roamingSettings.get("disablePlacemat")
-
 const App = (props: AppProps) => {
+    const [disablePlacemat, setDisablePlacemat] = useState(
+        Office?.context?.roamingSettings?.get("disablePlacemat")
+    )
+
+    const handleDisablePlacemat = () => {
+        try {
+            Office.context.roamingSettings.set("disablePlacemat", true)
+            setDisablePlacemat(true)
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     if (!props.isOfficeInitialized) {
         return (
             <Progress
@@ -27,7 +39,13 @@ const App = (props: AppProps) => {
     return (
         <div className="ms-welcome">
             <Header logo={icon} title={props.title} message="Welcome" />
-            <main className="ms-welcome__main">{disablePlacemat ? <Summary /> : <Placemat />}</main>
+            <main className="ms-welcome__main">
+                {disablePlacemat ? (
+                    <Summary />
+                ) : (
+                    <Placemat onDisablePlacemat={handleDisablePlacemat} />
+                )}
+            </main>
         </div>
     )
 }

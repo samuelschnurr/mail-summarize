@@ -4,6 +4,10 @@ import * as React from "react"
 import { iconClass } from "utils/iconStyles"
 import { stackListItemStyles, stackStyles, stackTokens } from "utils/stackStyles"
 
+export interface PlacematProps {
+    onDisablePlacemat: () => void
+}
+
 const renderFeatureInformation = () => {
     const featureInformation = [
         { text: "Summarize long mails", icon: "Mail" },
@@ -23,7 +27,7 @@ const renderFeatureInformation = () => {
     return <>{items}</>
 }
 
-const Placemat = () => {
+const Placemat = (props: PlacematProps) => {
     return (
         <Stack tokens={stackTokens.sectionLargeGap} styles={stackStyles} horizontalAlign="center">
             <Stack.Item>
@@ -36,9 +40,7 @@ const Placemat = () => {
                 <DefaultButton
                     className="ms-welcome__action"
                     iconProps={{ iconName: "ChevronRight" }}
-                    onClick={() => {
-                        Office.context.roamingSettings.set("disablePlacemat", true)
-                    }}>
+                    onClick={props.onDisablePlacemat}>
                     Get started
                 </DefaultButton>
             </Stack.Item>
