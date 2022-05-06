@@ -6,6 +6,15 @@ export const stackStyles: IStackStyles = {
     },
 }
 
+export const stackListItemStyles: IStackStyles = {
+    root: {
+        width: "100%",
+        display: "inline-flex",
+        justifyContent: "center",
+        marginBottom: "20px",
+    },
+}
+
 export const stackItemStyles: IStackItemStyles = {
     root: {
         width: "100%",
