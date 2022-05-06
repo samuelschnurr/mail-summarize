@@ -7,12 +7,11 @@ import { stackItemStyles, stackTokens } from "utils/stackStyles"
 
 export interface SummaryConfigurationProps {
     onStartAnalyze: (mailBody: string, sentenceCount: number) => void
+    onSentenceCountChange: (value: number) => void
+    sentenceCount: number
 }
 
 const SummaryConfiguration = (props: SummaryConfigurationProps) => {
-    const [sentenceCount, setSentenceCount] = useState(3)
-    const handleSentenceCountChange = (value: number) => setSentenceCount(value)
-
     const [mailItem, setMailItem] = useState({
         body: "",
         error: "",
@@ -48,8 +47,8 @@ const SummaryConfiguration = (props: SummaryConfigurationProps) => {
                     label="Summary length in sentences"
                     min={1}
                     max={20}
-                    value={sentenceCount}
-                    onChange={handleSentenceCountChange}
+                    value={props.sentenceCount}
+                    onChange={props.onSentenceCountChange}
                     showValue
                 />
             </Stack.Item>
@@ -57,7 +56,7 @@ const SummaryConfiguration = (props: SummaryConfigurationProps) => {
                 <DefaultButton
                     className="ms-welcome__action"
                     iconProps={{ iconName: "ChevronRight" }}
-                    onClick={() => props.onStartAnalyze(mailItem.body, sentenceCount)}>
+                    onClick={() => props.onStartAnalyze(mailItem.body, props.sentenceCount)}>
                     Start
                 </DefaultButton>
             </Stack.Item>

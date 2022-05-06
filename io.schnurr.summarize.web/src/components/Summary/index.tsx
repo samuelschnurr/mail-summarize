@@ -9,11 +9,14 @@ import SummaryConfiguration from "./SummaryConfiguration"
 import SummaryResult from "./SummaryResult"
 
 const Summary = () => {
+    const [sentenceCount, setSentenceCount] = useState(3)
     const [mailSummary, setMailSummary] = useState({
         summary: "",
         sentiment: "",
         isProcessing: false,
     })
+
+    const handleSentenceCountChange = (value: number) => setSentenceCount(value)
 
     const handleStartAnalyze = (mailBody: string, sentenceCount: number) => {
         setMailSummary({ ...mailSummary, isProcessing: true })
@@ -42,7 +45,11 @@ const Summary = () => {
     return (
         <main className="ms-welcome__main">
             <Stack tokens={stackTokens.heading} styles={stackStyles}>
-                <SummaryConfiguration onStartAnalyze={handleStartAnalyze} />
+                <SummaryConfiguration
+                    onStartAnalyze={handleStartAnalyze}
+                    onSentenceCountChange={handleSentenceCountChange}
+                    sentenceCount={sentenceCount}
+                />
                 <SummaryResult summary={mailSummary.summary} sentiment={mailSummary.sentiment} />
             </Stack>
         </main>
