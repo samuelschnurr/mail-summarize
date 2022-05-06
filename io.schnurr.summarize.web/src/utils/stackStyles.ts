@@ -11,7 +11,6 @@ export const stackListItemStyles: IStackStyles = {
         width: "100%",
         display: "inline-flex",
         justifyContent: "center",
-        marginBottom: "20px",
     },
 }
 
@@ -27,6 +26,10 @@ export const stackTokens = {
     },
     section: {
         childrenGap: 15,
+        fullWidth: true,
+    },
+    sectionLargeGap: {
+        childrenGap: 30,
         fullWidth: true,
     },
 }
