@@ -1,6 +1,6 @@
 import icon from "@assets/icon.png"
 import * as React from "react"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 import Placemat from "../Placemat"
 import Progress from "../Shared/Progress"
@@ -20,6 +20,7 @@ const App = (props: AppProps) => {
     const handleDisablePlacemat = () => {
         try {
             Office.context.roamingSettings.set("disablePlacemat", true)
+            Office.context.roamingSettings.saveAsync()
             setDisablePlacemat(true)
         } catch (error) {
             console.log(error)
