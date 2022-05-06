@@ -24,7 +24,9 @@ const App = (props: AppProps) => {
     return (
         <div className="ms-welcome">
             <Header logo={icon} title={props.title} message="Welcome" />
-            <Summary />
+            <main className="ms-welcome__main">
+                <Summary />
+            </main>
         </div>
     )
 }

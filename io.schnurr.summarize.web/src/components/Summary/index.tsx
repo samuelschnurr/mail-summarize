@@ -43,16 +43,14 @@ const Summary = () => {
     }
 
     return (
-        <main className="ms-welcome__main">
-            <Stack tokens={stackTokens.heading} styles={stackStyles}>
-                <SummaryConfiguration
-                    onStartAnalyze={handleStartAnalyze}
-                    onSentenceCountChange={handleSentenceCountChange}
-                    sentenceCount={sentenceCount}
-                />
-                <SummaryResult summary={mailSummary.summary} sentiment={mailSummary.sentiment} />
-            </Stack>
-        </main>
+        <Stack tokens={stackTokens.heading} styles={stackStyles}>
+            <SummaryConfiguration
+                onStartAnalyze={handleStartAnalyze}
+                onSentenceCountChange={handleSentenceCountChange}
+                sentenceCount={sentenceCount}
+            />
+            <SummaryResult summary={mailSummary.summary} sentiment={mailSummary.sentiment} />
+        </Stack>
     )
 }
 
