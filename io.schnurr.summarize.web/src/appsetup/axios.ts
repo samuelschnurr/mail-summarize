@@ -8,7 +8,8 @@ const initializeAxios = () => {
         // Accessing key vault is not available from clientside in the browser.
         // Also CORS is not available in key vault from client side.
         // So the function key is set here directly.
-        axios.defaults.headers.common["code"] = "<function_key>"
+        axios.defaults.params = {}
+        axios.defaults.params["code"] = "<function_key>"
     }
 }
 
