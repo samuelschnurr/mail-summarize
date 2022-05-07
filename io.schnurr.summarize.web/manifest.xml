@@ -8,7 +8,7 @@
   <Description DefaultValue="Summarizes emails with artificial intelligence. Based on the main topic of a message, the most important information is extracted."/>
   <IconUrl DefaultValue="https://localhost:3000/assets/icon-64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-128.png"/>
-  <SupportUrl DefaultValue="https://www.schnurr.io" />
+  <SupportUrl DefaultValue="https://www.schnurr.io/support" />
   <Hosts>
     <Host Name="Mailbox" />
   </Hosts>
