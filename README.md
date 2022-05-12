@@ -30,15 +30,15 @@ Mail Summarize is separated in three parts which are described in more detail un
 
 ### Summarize Mails
 
-<img alt="Image of a long outlook mail which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/LongMail-WithLayout.png" width="50%" height="50%" />
+<img alt="Image of a long outlook mail which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/LongMail-WithLayout.png" width="100%" height="100%" />
 
 ### Summarize Discussion
 
-<img alt="Image of a outlook mail with many responses which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/DiscussionMail-WithLayout.png" width="50%" height="50%" />
+<img alt="Image of a outlook mail with many responses which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/DiscussionMail-WithLayout.png" width="100%" height="100%" />
 
 ### Recognize Sentiment
 
-<img alt="Image of a outlook mail whose sentiment is recognized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/SentimentMail-WithLayout.png" width="50%" height="50%" />
+<img alt="Image of a outlook mail whose sentiment is recognized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/SentimentMail-WithLayout.png" width="100%" height="100%" />
 
 ## License
 
