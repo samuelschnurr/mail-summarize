@@ -35,7 +35,7 @@ Build your project with
 dotnet build
 ```
 
-In the `local.settings.json` set the value of `KeyVaultEndpoint` with uri of the key vault which you retreived in the <a href="https://github.com/samuelschnurr/mail-summarize/tree/master/io.schnurr.summarize.infrastructure">Terraform setup output</a>. The local.setting.json is pushed to git to simplify the setup process for you. It does not contain secrets. The setup of the key vault is required in combination with `az login` to authenticate your user to the key vault, which holds the credentials for the cognitive service.
+In the `local.settings.json` set the value of `KeyVaultEndpoint` with uri of the key vault which you retreived in the <a href="https://github.com/samuelschnurr/mail-summarize/tree/master/io.schnurr.summarize.infrastructure">Terraform setup output</a>. The `local.setting.json` is pushed to git to simplify the setup process for you. It does not contain secrets. The setup of the key vault is required in combination with `az login` to authenticate your user to the key vault, which holds the credentials for the cognitive service.
 
 Run the function
 
