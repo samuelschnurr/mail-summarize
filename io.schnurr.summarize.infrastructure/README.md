@@ -12,8 +12,6 @@ This project represents the azure infrastructure for the Mail Summarize Outlook 
 
 ## Build and run
 
-### Setup base infrastructure
-
 Before the infrastructure can be set up with Terraform, a few steps must be taken in advance.
 
 - Open `variables.tf` at root level and change the value to your custom names
@@ -24,7 +22,7 @@ Before the infrastructure can be set up with Terraform, a few steps must be take
  
 As an alternative to the manual setup of the resources you can change the terraform azure backend (`azurerm`) to a local or other backend. For this way change the block `backend "azurerm" { [...] }` in the root `main.tf`.
 
-### Deployment
+## Deploy
 
 To deploy the infrastructure to azure be sure you did the setup before. If you are ready you can just execute the common terraform commands to get a full operational infrastrucutre.
 
