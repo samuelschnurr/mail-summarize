@@ -1,0 +1,42 @@
+name: Node CI
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+    - io.schnurr.summarize.web/**
+  pull_request:
+    branches: [ main ]
+    paths:
+    - io.schnurr.summarize.web/**
+  workflow_dispatch:
+    branches: [ main ]
+    paths:
+    - io.schnurr.summarize.web/**
+
+jobs:
+  Build:
+  
+    runs-on: windows-latest
+    
+    steps:
+      - uses: actions/checkout@v1
+      
+      - name: Cache node modules
+        uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: npm ci and npm run build
+        run: |
+          npm ci
+          npm run clean
+          npm run build
+        working-directory: io.schnurr.summarize.web
