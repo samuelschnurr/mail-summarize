@@ -3,9 +3,13 @@ name: .NET CI
 on:
   push:
     branches: [ master ]
+    paths:
+     - io.schnurr.summarize.api/**
   pull_request:
     branches: [ master ]
-
+    paths:
+     - io.schnurr.summarize.api/**
+     
 jobs:
   build:
 
@@ -19,5 +23,7 @@ jobs:
         dotnet-version: 5.0.x
     - name: Restore dependencies
       run: dotnet restore
+      working-directory: io.schnurr.summarize.api
     - name: Build
       run: dotnet build --no-restore
+      working-directory: io.schnurr.summarize.api
