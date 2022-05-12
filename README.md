@@ -17,6 +17,12 @@ The following languages are supported:
 - Portugese
 - Spanish
 
+The following applications are supported:
+
+- Outlook 2013 - 2019 (Mac and Windows)
+- Outlook 365 (Mac and Windows)
+- Outlook Web
+
 ## Documentation
 
 To start, the repository should be opened as workspace with VSCode. The recommended extensions must then be installed. After this do the project setup in the subsequent order to get started. 
