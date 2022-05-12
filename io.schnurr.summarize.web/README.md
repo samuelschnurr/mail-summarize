@@ -2,7 +2,7 @@
 
 [![Node CI](https://github.com/samuelschnurr/mail-summarize/actions/workflows/node.yml/badge.svg)](https://github.com/samuelschnurr/mail-summarize/actions/workflows/node.yml)
 
-This project represents the web project which is wrapped as Microsoft Outlook Addin for the for <a href="https://github.com/samuelschnurr/mail-summarize#mail-summarize-outlook-addin">Mail Summarize</a>. 
+This project represents the web project which is wrapped as Microsoft Outlook Addin for <a href="https://github.com/samuelschnurr/mail-summarize#mail-summarize-outlook-addin">Mail Summarize</a>. 
 
 - Single page application based on ReactJS
 - Visualization of summarization and sentiment
