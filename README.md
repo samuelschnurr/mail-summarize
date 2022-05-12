@@ -1,10 +1,10 @@
-# Mail Summarize
+# Mail Summarize Outlook-Addin
 
 [![Node CI](https://github.com/samuelschnurr/mail-summarize/actions/workflows/node.yml/badge.svg)](https://github.com/samuelschnurr/mail-summarize/actions/workflows/node.yml)
 [![.NET CI](https://github.com/samuelschnurr/mail-summarize/actions/workflows/dotnet.yml/badge.svg)](https://github.com/samuelschnurr/mail-summarize/actions/workflows/dotnet.yml)
 
 
-Using the artificial intelligence of azure cognitive services and text analytics, your email is analyzed. After the content topic is identified, the mail is summarized into a length of 1-20 sentences defined by you. In addition, you will receive an assessment of the sentiment of the content.
+Using the artificial intelligence of azure cognitive services and text analytics, your email is analyzed. After the content topic is identified, the mail is summarized into a length of 1-20 sentences defined by you. In addition, you will receive an assessment of the sentiment of the content. This application can be used as Add-In in Microsoft Outlook.
 
 The following languages are supported:
 - Chinese (simplified)
