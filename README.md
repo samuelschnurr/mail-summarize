@@ -30,11 +30,11 @@ Mail Summarize is separated in three parts which are described in more detail un
 
 Based on the mail input, a text analysis is performed with Azure Cognitive Services. Here, the text summary and sentiment analysis are used.
 
-<img alt="Image of a long outlook mail which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/LongMail-WithLayout.png" width="75%" height="75%" />
+<img alt="Image of a long outlook mail which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/LongMail-WithLayout.png" style="width:80%;display:block;margin-left:auto;margin-right:auto;" />
 
-<img alt="Image of a outlook mail with many responses which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/DiscussionMail-WithLayout.png" width="75%" height="75%" />
+<img alt="Image of a outlook mail with many responses which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/DiscussionMail-WithLayout.png" style="width:80%;display:block;margin-left:auto;margin-right:auto;" />
 
-<img alt="Image of a outlook mail whose sentiment is recognized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/SentimentMail-WithLayout.png" width="75%" height="75%" />
+<img alt="Image of a outlook mail whose sentiment is recognized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/SentimentMail-WithLayout.png" style="width:80%;display:block;margin-left:auto;margin-right:auto;" />
 
 ## License
 
