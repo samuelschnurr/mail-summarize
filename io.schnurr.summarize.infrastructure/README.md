@@ -34,10 +34,10 @@ terraform apply
 After the successful setup you receive output variables which you should cache for the further setup of the other projects.
 
 ```
-- app_storage_endpoint = "<uri for your blob storage>"
-- cognitive_endpoint = "<uri for the cognitive services"
-- function_default_hostname = "<uri for the function>"
-- keyvault_uri = "<uri for the key vaule>"
+app_storage_endpoint = "<uri for your blob storage>"
+cognitive_endpoint = "<uri for the cognitive services"
+function_default_hostname = "<uri for the function>"
+keyvault_uri = "<uri for the key vaule>"
 ```
 
 ## License
