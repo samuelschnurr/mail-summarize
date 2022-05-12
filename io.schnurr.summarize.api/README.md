@@ -1,3 +1,5 @@
+# Mail Summarize Api
+
 Install AzureCLI
     - v2.33.1
     - https://azcliprod.blob.core.windows.net/msi/azure-cli-2.33.1.msi
