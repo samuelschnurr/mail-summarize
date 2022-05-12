@@ -23,7 +23,7 @@ The following applications are supported:
 - Outlook 365 (Mac and Windows)
 - Outlook Web
 
-## Documentation
+## Before you start
 
 To start, the repository should be opened as workspace with VSCode. The recommended extensions must then be installed. After this do the project setup in the subsequent order to get started. 
 
