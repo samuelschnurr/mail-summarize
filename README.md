@@ -3,7 +3,7 @@
 [![Node CI](https://github.com/samuelschnurr/mail-summarize/actions/workflows/node.yml/badge.svg)](link)
 [![.NET CI](https://github.com/samuelschnurr/mail-summarize/actions/workflows/dotnet.yml/badge.svg)](link)
 
-Using artificial intelligence, your email is analyzed. After the content topic is identified, the mail is summarized into a length of 1-20 sentences defined by you. In addition, you will receive an assessment of the sentiment of the content.
+Using the artificial intelligence of azure cognitive services and text analytics, your email is analyzed. After the content topic is identified, the mail is summarized into a length of 1-20 sentences defined by you. In addition, you will receive an assessment of the sentiment of the content.
 
 The following languages are supported:
 - Chinese (simplified)
@@ -25,6 +25,20 @@ Mail Summarize is separated in three parts which are described in more detail un
 - <a href="https://github.com/samuelschnurr/mail-summarize/tree/master/io.schnurr.summarize.infrastructure">Azure Infrastructure</a>: Infrastructure with Terraform v1
 - <a href="https://github.com/samuelschnurr/mail-summarize/tree/master/io.schnurr.summarize.api">Azure Function</a>: Backend with .NET 5
 - <a href="https://github.com/samuelschnurr/mail-summarize/tree/master/io.schnurr.summarize.web">Outlook Add-In</a>: Frontend with React 16
+
+## Demonstration
+
+### Summarize Mails
+
+<img alt="Image of a long outlook mail which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/LongMail-WithLayout.png" width="50%" height="50%" />
+
+### Summarize Discussion
+
+<img alt="Image of a outlook mail with many responses which is summarized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/DiscussionMail-WithLayout.png" width="50%" height="50%" />
+
+### Recognize Sentiment
+
+<img alt="Image of a outlook mail whose sentiment is recognized in the taskpane add-in beside." src="https://github.com/samuelschnurr/mail-summarize/blob/master/docs/SentimentMail-WithLayout.png" width="50%" height="50%" />
 
 ## License
 
