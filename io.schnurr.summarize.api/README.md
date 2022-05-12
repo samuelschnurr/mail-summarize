@@ -54,7 +54,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 
 Before you deploy the web project to azure make sure you set the configuration with the correct values which you retreived in the <a href="https://github.com/samuelschnurr/mail-summarize/tree/master/io.schnurr.summarize.infrastructure">Terraform setup output</a>.
 
-Right click on the function project and `Deploy to Azure Function`. Select your azure function `fa-mailsummarize`
+Right click on the function project and `Deploy to Azure Function`. Select your azure function `fa-mailsummarize`.
 
 Notice: For this deployment you need the recommended extension `Azure Functions Extension`. 
 
