@@ -24,7 +24,7 @@ As an alternative to the manual setup of the resources you can change the terraf
 
 ## Deploy
 
-To deploy the infrastructure to azure be sure you did the setup before. If you are ready you can just execute the common terraform commands to get a full operational infrastrucutre.
+To deploy the infrastructure to azure be sure you did the `Build and run` setup before. If you are ready you can just execute the common terraform commands to get a full operational infrastrucutre.
 
 ```
 terraform init
