@@ -25,13 +25,13 @@ To build and run the outlook Add-In execute the following commands. Make sure yo
 npm install
 ```
 
-Start debugging in Outlook Desktop. Automatically the manifest is registered and the certificate installed (alternatively you can <a href="https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing?tabs=windows">sideload manually</a>).
+Start debugging in Outlook Desktop. Automatically the manifest is registered and the certificate installed.
 
 ```
 npm run start
 ```
 
-Alternatively start local development server
+Alternatively you can <a href="https://docs.microsoft.com/en-us/office/dev/add-ins/outlook/sideload-outlook-add-ins-for-testing?tabs=windows">sideload manually</a> or start local development server
 
 ```
 npm run build:dev
